@@ -5,12 +5,12 @@ include/rubberband/RubberBandLiveShifter.h
 include/rubberband/RubberBandStretcher.h
 include/rubberband/rubberband-c.h
 lib/ladspa/ladspa-rubberband.cat
-lib/ladspa/ladspa-rubberband.so
+lib/ladspa/ladspa-rubberband.${PLUGIN_EXT}
 lib/librubberband.a
 lib/librubberband.so
 lib/librubberband.so.3
 lib/librubberband.so.3.0.0
 lib/pkgconfig/rubberband.pc
 lib/vamp/vamp-rubberband.cat
-lib/vamp/vamp-rubberband.so
+lib/vamp/vamp-rubberband.${PLUGIN_EXT}
 share/ladspa/rdf/ladspa-rubberband.rdf

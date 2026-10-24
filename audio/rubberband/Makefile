@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.20 2026/07/13 04:35:23 wiz Exp $
 
 DISTNAME=	rubberband-4.0.0
-PKGREVISION=	1
+PKGREVISION=	2
 CATEGORIES=	audio
 MASTER_SITES=	https://breakfastquay.com/files/releases/
 EXTRACT_SUFX=	.tar.bz2
@@ -25,6 +25,14 @@ PYTHON_FOR_BUILD_ONLY=	tool
 
 PKGCONFIG_OVERRIDE_STAGE=	pre-install
 PKGCONFIG_OVERRIDE+=		output/meson-private/rubberband.pc
+
+# meson names the LADSPA/Vamp plugin modules *.dylib on Darwin.
+.include "../../mk/bsd.prefs.mk"
+.if ${OPSYS} == "Darwin"
+PLIST_SUBST+=	PLUGIN_EXT=dylib
+.else
+PLIST_SUBST+=	PLUGIN_EXT=so
+.endif
 
 .include "../../mk/atomic64.mk"
 .include "../../audio/ladspa/buildlink3.mk"
