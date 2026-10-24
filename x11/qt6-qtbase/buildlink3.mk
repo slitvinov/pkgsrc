@@ -87,6 +87,11 @@ PLIST.qt6dbus=	yes
 .include "../../x11/libxkbcommon/buildlink3.mk"
 .endif
 .include "../../mk/atomic64.mk"
+
+# Qt modules: build with the Command Line Tools SDK when full Xcode is not installed.
+.if ${OPSYS} == "Darwin"
+CMAKE_CONFIGURE_ARGS+=	-DQT_NO_APPLE_SDK_AND_XCODE_CHECK:BOOL=ON
+.endif
 .endif	# QT6_QTBASE_BUILDLINK3_MK
 
 BUILDLINK_TREE+=	-qt6-qtbase

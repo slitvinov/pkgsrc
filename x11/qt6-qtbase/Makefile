@@ -2,7 +2,7 @@
 
 DISTNAME=	qtbase-everywhere-src-${QTVERSION}
 PKGNAME=	qt6-qtbase-${QTVERSION}
-PKGREVISION=	4
+PKGREVISION=	5
 COMMENT=	C++ X GUI toolkit
 CATEGORIES=	x11
 
@@ -192,6 +192,10 @@ pre-configure:
 .include "options.mk"
 
 CMAKE_CONFIGURE_ARGS+=	-DQT_DISABLE_RPATH:BOOL=ON
+.if ${OPSYS} == "Darwin"
+# Build with the Command Line Tools SDK when full Xcode is not installed.
+CMAKE_CONFIGURE_ARGS+=	-DQT_NO_APPLE_SDK_AND_XCODE_CHECK:BOOL=ON
+.endif
 
 .include "../../devel/cmake/configure-settings.mk"
 
