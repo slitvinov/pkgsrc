@@ -2,6 +2,7 @@
 
 DISTNAME=	tcl${TCL_VERSION}-src
 PKGNAME=	tcl-${TCL_VERSION}
+PKGREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=tcl/}
 
@@ -38,6 +39,8 @@ TEST_TARGET=		test
 CONFIGURE_ARGS+=	--enable-64bit
 .endif
 
+# Leave room in the nested pkgs/ dylibs for the install_name_tool -id fixup below.
+LDFLAGS.Darwin+=	-Wl,-headerpad_max_install_names
 CONFIGURE_ARGS.NetBSD+=	ac_cv_func_gethostbyname_r=no
 CONFIGURE_ARGS.NetBSD+=	ac_cv_func_gethostbyaddr_r=no
 
