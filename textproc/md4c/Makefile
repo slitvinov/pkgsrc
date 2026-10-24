@@ -1,6 +1,7 @@
 # $NetBSD: Makefile,v 1.6 2026/10/02 15:11:56 wiz Exp $
 
 DISTNAME=	md4c-0.5.3
+PKGREVISION=	1
 CATEGORIES=	textproc converters
 MASTER_SITES=	${MASTER_SITE_GITHUB:=mity/}
 GITHUB_TAG=	release-${PKGVERSION_NOREV}
@@ -14,6 +15,10 @@ WRKSRC=		${WRKDIR}/md4c-release-${PKGVERSION_NOREV}
 
 PKGCONFIG_OVERRIDE+=	src/md4c-html.pc.in
 PKGCONFIG_OVERRIDE+=	src/md4c.pc.in
+
+# The pkgsrc wrappers drop the build-tree rpath, so CMake's install-time
+# install_name_tool -delete_rpath fails on newer macOS toolchains.
+CMAKE_CONFIGURE_ARGS+=	-DCMAKE_SKIP_BUILD_RPATH=ON
 
 .include "../../devel/cmake/build.mk"
 .include "../../mk/bsd.pkg.mk"
