@@ -2,6 +2,7 @@
 
 DISTNAME=	oneTBB-2023.1.0
 PKGNAME=	${DISTNAME:S/oneTBB-/threadingbuildingblocks-/}
+PKGREVISION=	1
 CATEGORIES=	parallel
 MASTER_SITES=	${MASTER_SITE_GITHUB:=uxlfoundation/}
 GITHUB_PROJECT=	oneTBB
