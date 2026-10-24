@@ -4,5 +4,6 @@ BLAKE2s (cffi-2.1.1.tar.gz) = 01ac2c77ce13ecb561791459bf7fa792ee2ad084b5c28f7f55
 SHA512 (cffi-2.1.1.tar.gz) = 60299646ae72e54155a3ca220f00a2b2fee079276a01ff13e30fb6af0d19b07fb4ae539af55e4704ce2081d34c4a3079ef43c0dcb2fe854f835f8441b348f7c5
 Size (cffi-2.1.1.tar.gz) = 530807 bytes
 SHA1 (patch-setup.py) = 7e7029d93791d8e8c9cdbb0d04c31f30d5658d1d
+SHA1 (patch-src_c___cffi__backend.c) = 70893a2358816183a815b3eca73cc0b813421f4a
 SHA1 (patch-testing_cffi0_test__verify.py) = 91e903aa6aa89f997aba1578cb9452e6ac160f50
 SHA1 (patch-testing_cffi1_test__verify1.py) = 72d564ff8422bc1c8ed8b7058fb95ca669b69529
