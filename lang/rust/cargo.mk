@@ -110,6 +110,32 @@ CARGO_INSTALL_ARGS?=	install --path . --root ${DESTDIR}${PREFIX} ${DEFAULT_CARGO
 MAKE_ENV+=		RUSTFLAGS=${RUSTFLAGS:Q}
 ALL_ENV+=		CARGO_HOME=${WRKDIR}
 
+# User-settable variables:
+#
+# PKGSRC_USE_SCCACHE
+#	If "yes", cargo runs rustc through devel/sccache, which caches
+#	compiled library crates across builds.
+#	Default: no
+#
+# SCCACHE_DIR
+#	The directory where sccache keeps its cache.  By default it is
+#	inside WRKDIR, so it is lost after "make clean"; set it in mk.conf
+#	to share the cache between packages and rebuilds.
+#
+# Package-settable variables:
+#
+# IGNORE_SCCACHE
+#	Can be set to "yes" for packages that have problems with sccache.
+
+PKGSRC_USE_SCCACHE?=	no
+.if ${PKGSRC_USE_SCCACHE:tl} == "yes" && !defined(IGNORE_SCCACHE) && \
+    ${PKGPATH} != "devel/sccache"
+TOOL_DEPENDS+=		sccache-[0-9]*:../../devel/sccache
+SCCACHE_DIR?=		${WRKDIR}/.sccache
+MAKE_ENV+=		RUSTC_WRAPPER=${TOOLBASE}/bin/sccache
+MAKE_ENV+=		SCCACHE_DIR=${SCCACHE_DIR:Q}
+.endif
+
 .if !target(do-build)
 do-build: do-cargo-build
 .endif
