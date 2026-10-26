@@ -1,4 +1,4 @@
-$NetBSD: patch-vendor_memchr-2.8.0_src_vector.rs,v 1.1 2026/09/30 20:01:30 wiz Exp $
+$NetBSD$
 
 Apply fix for big-endian aarch64 from
 https://github.com/BurntSushi/memchr/pull/222

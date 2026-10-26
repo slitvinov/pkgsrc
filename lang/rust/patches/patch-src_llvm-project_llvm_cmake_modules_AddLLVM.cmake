@@ -7,9 +7,9 @@ works inside pkgsrc again (indirectly eliminates $ORIGIN rpath
 handling / editing, $ORIGIN handling is partially undone by cwrappers
 in pkgsrc).
 
---- src/llvm-project/llvm/cmake/modules/AddLLVM.cmake.orig
+--- src/llvm-project/llvm/cmake/modules/AddLLVM.cmake.orig	2023-07-12 03:33:01.000000000 +0000
 +++ src/llvm-project/llvm/cmake/modules/AddLLVM.cmake
-@@ -2694,7 +2694,7 @@
+@@ -2694,7 +2694,7 @@ function(llvm_setup_rpath name)
    endif()
  
    if (APPLE)
@@ -18,7 +18,7 @@ in pkgsrc).
      set(_install_rpath "@loader_path/../lib${LLVM_LIBDIR_SUFFIX}" ${extra_libdir})
    elseif("${CMAKE_SYSTEM_NAME}" MATCHES "AIX" AND BUILD_SHARED_LIBS)
      # $ORIGIN is not interpreted at link time by aix ld.
-@@ -2703,8 +2703,7 @@
+@@ -2703,8 +2703,7 @@ function(llvm_setup_rpath name)
      # FIXME: update this when there is better solution.
      set(_install_rpath "${LLVM_LIBRARY_OUTPUT_INTDIR}" "${CMAKE_INSTALL_PREFIX}/lib${LLVM_LIBDIR_SUFFIX}" ${extra_libdir})
    elseif(UNIX)
@@ -28,7 +28,7 @@ in pkgsrc).
      if(LLVM_ENABLE_PER_TARGET_RUNTIME_DIR AND NOT APPLE)
        list(APPEND _build_rpath "\$ORIGIN/../lib${LLVM_LIBDIR_SUFFIX}/${LLVM_DEFAULT_TARGET_TRIPLE}")
        list(APPEND _install_rpath "\$ORIGIN/../lib${LLVM_LIBDIR_SUFFIX}/${LLVM_DEFAULT_TARGET_TRIPLE}")
-@@ -2722,16 +2721,9 @@
+@@ -2722,16 +2721,9 @@ function(llvm_setup_rpath name)
      return()
    endif()
  

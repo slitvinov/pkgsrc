@@ -1,4 +1,4 @@
-$NetBSD: patch-vendor_openssl-sys-0.9.117_build_find__normal.rs,v 1.1 2026/09/30 20:01:31 wiz Exp $
+$NetBSD$
 
 Add hack for Darwin when homebrew is installed.
 

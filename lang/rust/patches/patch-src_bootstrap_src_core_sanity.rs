@@ -1,10 +1,10 @@
-$NetBSD: patch-src_bootstrap_src_core_sanity.rs,v 1.4 2026/09/30 20:01:29 wiz Exp $
+$NetBSD$
 
 Add m68k-unknown-netbsd to "missing stage0" list.
 
---- src/bootstrap/src/core/sanity.rs.orig
+--- src/bootstrap/src/core/sanity.rs.orig	2026-05-25 23:21:07.000000000 +0000
 +++ src/bootstrap/src/core/sanity.rs
-@@ -36,6 +36,7 @@
+@@ -36,6 +36,7 @@ pub struct Finder {
  const STAGE0_MISSING_TARGETS: &[&str] = &[
      // just a dummy comment so the list doesn't get onelined
      "aarch64-unknown-l4re-uclibc",
@@ -12,7 +12,7 @@ Add m68k-unknown-netbsd to "missing stage0" list.
  ];
  
  /// Minimum version threshold for libstdc++ required when using prebuilt LLVM
-@@ -264,7 +265,10 @@
+@@ -264,7 +265,10 @@ than building it.
                  for duplicated_target in duplicated_targets {
                      println!("  {duplicated_target}");
                  }
