@@ -3,6 +3,7 @@
 
 DISTNAME=	lp_solve_5.5.2.3_source
 PKGNAME=	${DISTNAME:S/_source//:S/_5/-5/}
+PKGREVISION=	1
 CATEGORIES=	math devel
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=lpsolve/}
 
@@ -36,6 +37,13 @@ LPSOLVE_ARCH=	ux32
 
 INSTALLATION_DIRS=	bin include/lpsolve lib
 
+PLIST_VARS+=	dylib so
+.if ${OPSYS} == "Darwin"
+PLIST.dylib=	yes
+.else
+PLIST.so=	yes
+.endif
+
 MAKE_ENV+=	DL_LDADD=${BUILDLINK_LDADD.dl:Q}
 
 do-build:
@@ -44,6 +52,12 @@ do-build:
 	cd ${WRKSRC}/${dir} &&				\
 	${SETENV} ${MAKE_ENV} ${SH} ccc
 .endfor
+.if ${OPSYS} == "Darwin"
+	cd ${WRKSRC}/lpsolve55/bin/${LPSOLVE_ARCH} &&			\
+	${CC} -dynamiclib -install_name ${PREFIX}/lib/liblpsolve55.dylib	\
+		-o liblpsolve55.dylib -Wl,-all_load liblpsolve55.a	\
+		${LDFLAGS} -lm
+.endif
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/lp_solve/bin/${LPSOLVE_ARCH}/lp_solve \
@@ -51,11 +65,16 @@ do-install:
 .for i in declare.h fortify.h ini.h lp_*.h lpkit.h lpsolve.h ufortify.h yacc_read.h
 	${INSTALL_DATA} ${WRKSRC}/${i} ${DESTDIR}${PREFIX}/include/lpsolve
 .endfor
-.for i in liblpsolve55.a liblpsolve55.so
-	${INSTALL_LIB} ${WRKSRC}/lpsolve55/bin/${LPSOLVE_ARCH}/${i} \
+	${INSTALL_LIB} ${WRKSRC}/lpsolve55/bin/${LPSOLVE_ARCH}/liblpsolve55.a \
 		${DESTDIR}${PREFIX}/lib
-.endfor
+.if ${OPSYS} == "Darwin"
+	${INSTALL_LIB} ${WRKSRC}/lpsolve55/bin/${LPSOLVE_ARCH}/liblpsolve55.dylib \
+		${DESTDIR}${PREFIX}/lib
+.else
+	${INSTALL_LIB} ${WRKSRC}/lpsolve55/bin/${LPSOLVE_ARCH}/liblpsolve55.so \
+		${DESTDIR}${PREFIX}/lib
 	${LN} -sf liblpsolve55.so ${DESTDIR}${PREFIX}/lib/liblpsolve55.so.1
+.endif
 
 .include "../../mk/dlopen.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
