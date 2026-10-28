@@ -2,7 +2,7 @@
 
 DISTNAME=		clucene-core-2.3.3.4
 PKGNAME=		lib${DISTNAME:S/-core-/-/}
-PKGREVISION=		30
+PKGREVISION=		31
 CATEGORIES=		textproc
 MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=clucene/}
 
@@ -19,6 +19,16 @@ USE_LIBTOOL=	yes
 CMAKE_CONFIGURE_ARGS+=	-DBUILD_CONTRIBS_LIB=ON
 # https://sourceforge.net/p/clucene/bugs/236/
 CMAKE_CONFIGURE_ARGS+=	-DCMAKE_POLICY_VERSION_MINIMUM=3.5
+
+.include "../../mk/bsd.prefs.mk"
+
+# The macOS SDK no longer declares stat64 and friends, but they still
+# link, so the configure checks pick them.
+.if ${OPSYS} == "Darwin"
+CMAKE_CONFIGURE_ARGS+=	-D_CL_HAVE_FUNCTION_FSTAT64:INTERNAL=
+CMAKE_CONFIGURE_ARGS+=	-D_CL_HAVE_FUNCTION_STAT64:INTERNAL=
+CMAKE_CONFIGURE_ARGS+=	-D_CL_HAVE_FUNCTION_LSEEK64:INTERNAL=
+.endif
 
 .include "../../devel/cmake/build.mk"
 .include "../../devel/boost-libs/buildlink3.mk"
