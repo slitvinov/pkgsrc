@@ -1,4 +1,6 @@
 @comment $NetBSD: PLIST,v 1.2 2025/08/03 09:49:35 wiz Exp $
 include/zxcvbn.h
-lib/libzxcvbn.so
-lib/libzxcvbn.so.0
+${PLIST.dylib}lib/libzxcvbn.0.dylib
+${PLIST.dylib}lib/libzxcvbn.dylib
+${PLIST.so}lib/libzxcvbn.so
+${PLIST.so}lib/libzxcvbn.so.0
