@@ -10,6 +10,7 @@ SHA1 (patch-src_core_CLucene_queryParser_QueryParser.cpp) = 32dc9691fce2c5dfc086
 SHA1 (patch-src_core_CLucene_queryParser_QueryParser.h) = 28457f254ee1aa63362482d43c0f1868fb846eb1
 SHA1 (patch-src_core_CLucene_queryParser_QueryParserTokenManager.cpp) = 0ee63584fc8b60b20ec2275d4f68f0909793df5d
 SHA1 (patch-src_core_CLucene_queryParser_QueryParserTokenManager.h) = 6934ad5e1052850b2aed50d91260bd46801e6274
+SHA1 (patch-src_core_CLucene_util_Equators.h) = 22fcd7f3db03ebeb1d46e39fd136b97fb22326ac
 SHA1 (patch-src_shared_CLucene_LuceneThreads.h) = a08f4ccc70150510650ba82c64b1dff8495b1f10
 SHA1 (patch-src_shared_CLucene_config_repl__tchar.h) = 465537d5ee226d9831df2da8d87f3dbc5e364d5f
 SHA1 (patch-src_shared_cmake_MacroCheckGccVisibility.cmake) = e78152256779e07236b9aabdc68ee9e64122ab0a
