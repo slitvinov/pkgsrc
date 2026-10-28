@@ -1,7 +1,6 @@
 # $NetBSD: Makefile,v 1.47 2025/04/21 16:32:26 wiz Exp $
 
-DISTNAME=	patch-2.7.6
-PKGREVISION=	1
+DISTNAME=	patch-2.8
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_GNU:=patch/}
 EXTRACT_SUFX=	.tar.xz
@@ -13,6 +12,7 @@ LICENSE=	gnu-gpl-v3
 
 GNU_CONFIGURE=		yes
 USE_TOOLS+=		awk
+TEST_TARGET=		check
 
 .include "../../mk/bsd.prefs.mk"
 
