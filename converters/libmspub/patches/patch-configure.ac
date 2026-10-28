@@ -1,0 +1,16 @@
+$NetBSD$
+
+Link with icu-uc: ucnv_* and uloc_* are in libicuuc, and icu-i18n
+lists icu-uc only in Requires.private.
+
+--- configure.ac.orig
++++ configure.ac
+@@ -104,7 +104,7 @@
+ # ========
+ # Find icu
+ # ========
+-PKG_CHECK_MODULES([ICU], [icu-i18n])
++PKG_CHECK_MODULES([ICU], [icu-i18n icu-uc])
+ AC_SUBST(ICU_CFLAGS)
+ AC_SUBST(ICU_LIBS)
+ 
