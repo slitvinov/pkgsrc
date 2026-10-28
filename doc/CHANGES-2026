@@ -10269,3 +10269,4 @@ Changes to the packages collection and infrastructure in 2026:
 	Updated net/knot to 3.6.1 [drixter 2026-10-09]
 	Added math/chuffed version 0.14.0 [alnsn 2026-10-09]
 	Updated lang/go127 to 1.27.2 [slitvinov 2026-10-23]
+	Updated devel/patch to 2.8 [slitvinov 2026-10-28]
