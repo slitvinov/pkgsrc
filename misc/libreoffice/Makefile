@@ -4,7 +4,7 @@ VERREL=		26.8.0
 VERRC=		3
 VER=		${VERREL}.${VERRC}
 DISTNAME=	libreoffice-${VER}
-PKGREVISION=	2
+PKGREVISION=	3
 CATEGORIES=	misc
 MASTER_SITES=	http://download.documentfoundation.org/libreoffice/src/${VERREL}/
 EXTRACT_SUFX=	.tar.xz
@@ -162,6 +162,10 @@ DISTFILES+=		${md2}
 
 .include "options.mk"
 
+.if ${OPSYS} == "Darwin"
+PLIST_SRC=	${PKGDIR}/PLIST.Darwin
+.endif
+
 # tar: Invalid header, starting valid header search.
 EXTRACT_USING=		bsdtar
 
@@ -178,6 +182,9 @@ TOOLS_PLATFORM.find=	# empty
 # GUN tar is really needed. Some Makefiles depends on GNUTAR.
 USE_TOOLS+=		automake bash bison gmake gsed gtar
 USE_TOOLS+=		msgfmt perl pkg-config unzip zip
+.if ${OPSYS} == "Darwin"
+USE_TOOLS+=		pax
+.endif
 PTHREAD_OPTS+=		require
 
 HAS_CONFIGURE=		yes
@@ -227,14 +234,21 @@ CONFIGURE_ARGS+=	--with-lang="ALL"
 CONFIGURE_ARGS+=	--with-myspell-dicts
 CONFIGURE_ARGS+=	--with-boost-libdir=${BUILDLINK_PREFIX.boost-libs}/lib
 CONFIGURE_ARGS+=	--with-system-libs
+.if ${OPSYS} == "Darwin"
+CONFIGURE_ARGS+=	--enable-bogus-pkg-config
+CONFIGURE_ARGS+=	--disable-eot
+TOOL_DEPENDS+=		patch-[0-9]*:../../devel/patch
+CONFIGURE_ARGS+=	--with-gnu-patch=${TOOLBASE}/bin/gpatch
+.else
 CONFIGURE_ARGS+=	--with-system-dicts
+CONFIGURE_ARGS+=	--without-gssapi
+.endif
 CONFIGURE_ARGS+=	--with-vendor="pkgsrc"
 CONFIGURE_ARGS+=	--with-tls="nss"
 CONFIGURE_ARGS+=	--with-system-nss
 CONFIGURE_ARGS+=	--without-doxygen
 CONFIGURE_ARGS+=	--without-junit
 CONFIGURE_ARGS+=	--without-krb5
-CONFIGURE_ARGS+=	--without-gssapi
 CONFIGURE_ARGS+=	--with-system-cppunit
 # internal sane should be used because only header files are used.
 CONFIGURE_ARGS+=	--without-system-sane
@@ -276,7 +290,11 @@ CFLAGS+=		-Ui386
 .include "../../mk/dlopen.buildlink3.mk"
 BUILDLINK_TRANSFORM+=	opt:-ldl:${BUILDLINK_LDADD.dl:Q}
 
+.if ${OPSYS} == "Darwin"
+INSTALLATION_DIRS=	Applications bin
+.else
 INSTALLATION_DIRS=	bin share/applications
+.endif
 
 CHECK_WRKREF_SKIP+=	${PKGNAME_NOREV}/lib/libreoffice/program/libsofficeapp.so
 
@@ -299,6 +317,17 @@ provide-python3:
 	# install phase uses python3 command
 	[ -h "${BUILDLINK_DIR}/bin/python3" ] || ${LN} -s ${PYTHONBIN} "${BUILDLINK_DIR}/bin/python3"
 
+BUILD_DEFS+=	PYTHONBIN
+
+.if ${OPSYS} == "Darwin"
+do-install:
+	cd ${WRKSRC}/instdir && \
+		${PAX} -rw LibreOffice.app ${DESTDIR}${PREFIX}/Applications
+	${SED} -e 's,@PREFIX@,${PREFIX},g' ${FILESDIR}/soffice.sh > ${WRKDIR}/soffice
+.  for f in soffice libreoffice
+	${INSTALL_SCRIPT} ${WRKDIR}/soffice ${DESTDIR}${PREFIX}/bin/${f}
+.  endfor
+.else
 do-install:
 	cd ${WRKSRC} && make DESTDIR="${DESTDIR}" PREFIXDIR="${PREFIX}" distro-pack-install
 # make install cleans ${DESTDIR}${PREFIX}/*, so bin etc. are removed.
@@ -307,12 +336,11 @@ do-install:
 		${MKDIR} ${d}
 .endfor
 
-BUILD_DEFS+=	PYTHONBIN
-
 post-install:
 .for f in ${LO_PROGRAMS}
 	cd ${DESTDIR}${PREFIX}/bin && ${LN} -s ../${PKGNAME_NOREV}/bin/${f}
 .endfor
+.endif
 
 .include "../../archivers/bzip2/buildlink3.mk"
 .include "../../archivers/zstd/buildlink3.mk"
