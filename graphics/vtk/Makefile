@@ -2,7 +2,7 @@
 
 DISTNAME=	VTK-9.5.2
 PKGNAME=	${DISTNAME:tl}
-PKGREVISION=	7
+PKGREVISION=	8
 CATEGORIES=	graphics
 MASTER_SITES=	https://www.vtk.org/files/release/${PKGVERSION_NOREV:R}/
 VERSION_MINOR=	${PKGVERSION_NOREV:C/([0-9]+\.[0-9]+).*/\1/}
@@ -56,6 +56,15 @@ PRINT_PLIST_AWK+=	{ gsub(/${VERSION_MINOR}/, "$${VTKVER}"); }
 CHECK_PORTABILITY_SKIP+=	Examples/Build/vtkMy/Utilities/Doxygen/doc_makeall.sh.in
 
 .include "../../mk/bsd.prefs.mk"
+
+# The exported CMake targets may record buildlink paths of libraries
+# (for example libexecinfo); point them at PREFIX.
+SUBST_CLASSES+=		blpath
+SUBST_STAGE.blpath=	post-build
+SUBST_MESSAGE.blpath=	Replacing buildlink paths in the exported CMake targets.
+SUBST_FILES.blpath=	${CMAKE_BUILD_DIR}/CMakeFiles/Export/*/VTK-targets.cmake
+SUBST_SED.blpath=	-e 's,${BUILDLINK_DIR},${PREFIX},g'
+SUBST_NOOP_OK.blpath=	yes
 
 .if ${OPSYS} == "Darwin"
 PLIST.cocoa=	yes
