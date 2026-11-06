@@ -1,8 +1,8 @@
 $NetBSD: distinfo,v 1.12 2026/08/12 03:41:38 ryoon Exp $
 
-BLAKE2s (svt-av1-4.2.0.tar.bz2) = 722cbb469bc7fadcfa3c5de8cef4604718d1345bc5375c35d312310b881e26e5
-SHA512 (svt-av1-4.2.0.tar.bz2) = d3141f8e1037b6294bbd62c91f67428a31504c85055cf4a308627382c00f2da99c7417915349d9fb7a05d65d046877e2cf963fa30a8f5de114059b57555344ab
-Size (svt-av1-4.2.0.tar.bz2) = 10334915 bytes
+BLAKE2s (svt-av1-4.3.0.tar.bz2) = 10baa35e90d14a29735055fe4d2dec4b73139ca57017302793a39cdc33d54e41
+SHA512 (svt-av1-4.3.0.tar.bz2) = 9340c506c2fb12e608107b20cd2b9633b5844e6493752690fbefb70e7af267b84b5352475e61bc4f87c312db751aeac6b9d89b216515037fae14dd7ac3a68401
+Size (svt-av1-4.3.0.tar.bz2) = 10415789 bytes
 SHA1 (patch-CMakeLists.txt) = 64ca8305479d09a9d9a635aca4b06f5466fca9aa
 SHA1 (patch-Source_App_app__config.c) = ed79ce4257f2b0c9a0645fdf8021a2470ec8da81
 SHA1 (patch-Source_App_app__config.h) = 1891ccd5e333cf6fd64877292ec443896b8017fe
