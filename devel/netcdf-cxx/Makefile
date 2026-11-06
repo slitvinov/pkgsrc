@@ -2,7 +2,7 @@
 
 DISTNAME=	netcdf-cxx4-4.3.1
 PKGNAME=	${DISTNAME:S/cxx4/cxx/}
-PKGREVISION=	13
+PKGREVISION=	14
 CATEGORIES=	devel
 MASTER_SITES=	https://downloads.unidata.ucar.edu/netcdf-cxx/${PKGVERSION_NOREV}/
 
@@ -16,6 +16,12 @@ USE_LIBTOOL=		yes
 GNU_CONFIGURE=		yes
 INFO_FILES=		yes
 TEST_TARGET=		check
+
+# configure writes the version number to a file named VERSION, which
+# shadows the C++ <version> header on case-insensitive file systems
+# (macOS) because the build uses -I..
+post-configure:
+	${RM} -f ${WRKSRC}/VERSION
 
 .include "../../devel/netcdf/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
