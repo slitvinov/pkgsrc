@@ -204,6 +204,8 @@ DEFAULT_ACCEPTABLE_LICENSES+=	info-zip
 # Derived from MIT, with an advertising clause added (and previously
 # included in Debian main as such).
 DEFAULT_ACCEPTABLE_LICENSES+=	enlightenment16
+# Apache 2.0 with a different trademarks section (OpenUSD).
+DEFAULT_ACCEPTABLE_LICENSES+=	tost-1.0
 
 # The following licenses do not currently meet our standards for
 # inclusion.
