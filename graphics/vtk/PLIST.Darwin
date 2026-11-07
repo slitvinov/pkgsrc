@@ -1,2 +1,0 @@
-@comment $NetBSD$
-include/vtk-${VTKVER}/vtkCocoaAutoreleasePool.h

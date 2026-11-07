@@ -463,6 +463,7 @@ include/vtk-${VTKVER}/vtkClosedSurfacePointPlacer.h
 include/vtk-${VTKVER}/vtkClosestNPointsStrategy.h
 include/vtk-${VTKVER}/vtkClosestPointStrategy.h
 include/vtk-${VTKVER}/vtkClustering2DLayoutStrategy.h
+${PLIST.cocoa}include/vtk-${VTKVER}/vtkCocoaAutoreleasePool.h
 ${PLIST.cocoa}include/vtk-${VTKVER}/vtkCocoaGLView.h
 ${PLIST.cocoa}include/vtk-${VTKVER}/vtkCocoaMacOSXSDKCompatibility.h
 ${PLIST.cocoa}include/vtk-${VTKVER}/vtkCocoaRenderWindow.h
