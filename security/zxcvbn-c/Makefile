@@ -1,11 +1,11 @@
 # $NetBSD: Makefile,v 1.3 2025/09/22 22:33:44 ryoon Exp $
 
 DISTNAME=	zxcvbn-c-2.6
+PKGREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_GITHUB:=tsyrogit/}
 GITHUB_PROJECT=	zxcvbn-c
 GITHUB_TAG=	v${PKGVERSION_NOREV}
-PKGREVISION=	1
 
 MAINTAINER=	ryoon@NetBSD.org
 HOMEPAGE=	https://github.com/tsyrogit/zxcvbn-c/
