@@ -5,6 +5,8 @@ is undefined) use ffi_closure_alloc() and ffi_prep_closure_loc() too.
 Otherwise cffi falls back to its own allocator that maps memory
 writable and executable, which arm64 macOS refuses: every
 ffi.callback() raised MemoryError "Cannot allocate write+execute memory".
+Fixed upstream in commit 90e8cc434ad9 (python-cffi/cffi#264), not yet
+in a release; remove with cffi 2.2.
 
 --- src/c/_cffi_backend.c.orig
 +++ src/c/_cffi_backend.c
