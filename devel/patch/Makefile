@@ -7,7 +7,7 @@ EXTRACT_SUFX=	.tar.xz
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	https://www.gnu.org/software/patch/patch.html
-COMMENT=	Patch files using diff output
+COMMENT=	Apply diff output to the original files
 LICENSE=	gnu-gpl-v3
 
 GNU_CONFIGURE=		yes
