@@ -2,7 +2,7 @@
 
 DISTNAME=		racket-9.3-src
 PKGNAME=		${DISTNAME:S/-src$//}
-PKGREVISION=		3
+PKGREVISION=		4
 CATEGORIES=		lang
 MASTER_SITES_PLT=	https://mirror.racket-lang.org/installers/${PKGVERSION_NOREV}/
 MASTER_SITES_PLT+=	https://www-old.cs.utah.edu/plt/installers/${PKGVERSION_NOREV}/
@@ -41,6 +41,10 @@ CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
 #            installation, even though --prefix is normally used
 #            for Unix-style installations)
 CONFIGURE_ARGS.Darwin+=	--enable-xonx
+# Racket loads OpenSSL with ffi-lib at run time (raco pkg over HTTPS);
+# the system's unversioned libssl.dylib aborts the process on macOS.
+DEPENDS_OPENSSL.Darwin=	openssl-[0-9]*:../../security/openssl
+DEPENDS+=		${DEPENDS_OPENSSL.${OPSYS}}
 
 USE_LANGUAGES=		c c++
 USE_TOOLS+=		gmake pkg-config
@@ -72,6 +76,10 @@ CONF_FILES+=		${EGDIR}/config.rktd \
 
 INSTALLATION_DIRS+=	share/bash-completion/completions
 INSTALLATION_DIRS+=	share/zsh/site-functions
+
+# The collects tree is installed as is; drop the patch backup.
+post-patch:
+	${RM} -f ${WRKSRC}/collects/setup/unixstyle-install.rkt.orig
 
 post-install:
 	${MV} -f ${DESTDIR:Q}${PKG_SYSCONFDIR:Q}/racket/config.rktd \

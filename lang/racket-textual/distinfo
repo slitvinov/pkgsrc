@@ -3,6 +3,7 @@ $NetBSD: distinfo,v 1.31 2026/08/17 15:35:43 ktnb Exp $
 BLAKE2s (racket-minimal-9.3-src.tgz) = 2d3abe8b82f21d24b96c3d988ae30362084662d73b4b30ab0ddb8da593616dfb
 SHA512 (racket-minimal-9.3-src.tgz) = bd9c74d6d0582e379711d5e21692a3b56237381b97d8cf4d2bd6461805bec6c3ae54d69f6c4b5e4f6befc6f6dbde1c49227026aa48ec201e722e98bff3d1963d
 Size (racket-minimal-9.3-src.tgz) = 17179789 bytes
+SHA1 (patch-collects_setup_unixstyle-install.rkt) = c8c72a41a90b8923cb9af472aa3a3a1b47fb0c64
 SHA1 (patch-src_ChezScheme_c_prim5.c) = 93d016e4e7b0542e8c9ad13db04441f4484dda67
 SHA1 (patch-src_ChezScheme_c_self-exe.c) = 3625cbcf6c7df2c5ee8968db127e1461eb500407
 SHA1 (patch-src_bc_configure) = 9c9e996e24fbfe38ee98e857f72af8e7fda724f8
