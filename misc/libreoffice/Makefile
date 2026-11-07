@@ -320,10 +320,12 @@ provide-python3:
 BUILD_DEFS+=	PYTHONBIN
 
 .if ${OPSYS} == "Darwin"
+post-build:
+	${SED} -e 's,@PREFIX@,${PREFIX},g' ${FILESDIR}/soffice.sh > ${WRKDIR}/soffice
+
 do-install:
 	cd ${WRKSRC}/instdir && \
 		${PAX} -rw LibreOffice.app ${DESTDIR}${PREFIX}/Applications
-	${SED} -e 's,@PREFIX@,${PREFIX},g' ${FILESDIR}/soffice.sh > ${WRKDIR}/soffice
 .  for f in soffice libreoffice
 	${INSTALL_SCRIPT} ${WRKDIR}/soffice ${DESTDIR}${PREFIX}/bin/${f}
 .  endfor
@@ -331,15 +333,15 @@ do-install:
 do-install:
 	cd ${WRKSRC} && make DESTDIR="${DESTDIR}" PREFIXDIR="${PREFIX}" distro-pack-install
 # make install cleans ${DESTDIR}${PREFIX}/*, so bin etc. are removed.
-.for d in ${INSTALLATION_DIRS}
+.  for d in ${INSTALLATION_DIRS}
 	cd ${DESTDIR}${PREFIX} && \
 		${MKDIR} ${d}
-.endfor
+.  endfor
 
 post-install:
-.for f in ${LO_PROGRAMS}
+.  for f in ${LO_PROGRAMS}
 	cd ${DESTDIR}${PREFIX}/bin && ${LN} -s ../${PKGNAME_NOREV}/bin/${f}
-.endfor
+.  endfor
 .endif
 
 .include "../../archivers/bzip2/buildlink3.mk"
