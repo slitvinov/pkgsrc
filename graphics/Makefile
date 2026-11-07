@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1131 2026/10/01 02:52:27 taca Exp $
+# $NetBSD: Makefile,v 1.1136 2026/11/02 20:24:20 wiz Exp $
 #
 
 COMMENT=	Graphics tools and libraries
@@ -454,6 +454,7 @@ SUBDIR+=	pear-Image_Color
 SUBDIR+=	pear-Image_Graph
 SUBDIR+=	pfstools
 SUBDIR+=	pgraf
+SUBDIR+=	photoc
 SUBDIR+=	photopc
 SUBDIR+=	php-exif
 SUBDIR+=	php-gd
@@ -489,9 +490,7 @@ SUBDIR+=	py-OpenGL-accelerate
 SUBDIR+=	py-Pillow
 SUBDIR+=	py-Willow
 SUBDIR+=	py-aafigure
-SUBDIR+=	py-actdiag
 SUBDIR+=	py-altgraph
-SUBDIR+=	py-blockdiag
 SUBDIR+=	py-blurhash
 SUBDIR+=	py-brewer2mpl
 SUBDIR+=	py-cairo
@@ -508,13 +507,13 @@ SUBDIR+=	py-glad2
 SUBDIR+=	py-graphviz
 SUBDIR+=	py-imageio
 SUBDIR+=	py-imagesize
+SUBDIR+=	py-img2pdf
 SUBDIR+=	py-japanize-matplotlib
 SUBDIR+=	py-leather
 SUBDIR+=	py-matplotlib
 SUBDIR+=	py-matplotlib-inline
 SUBDIR+=	py-matplotlib-venn
 SUBDIR+=	py-mcomix
-SUBDIR+=	py-nwdiag
 SUBDIR+=	py-objgraph
 SUBDIR+=	py-openexr
 SUBDIR+=	py-piexif
@@ -529,9 +528,9 @@ SUBDIR+=	py-qrcode
 SUBDIR+=	py-railroad-diagrams
 SUBDIR+=	py-scour
 SUBDIR+=	py-seaborn
-SUBDIR+=	py-seqdiag
 SUBDIR+=	py-spectra
 SUBDIR+=	py-strich
+SUBDIR+=	py-svg-hush
 SUBDIR+=	py-svglib
 SUBDIR+=	py-tifffile
 SUBDIR+=	py-wand
@@ -859,6 +858,7 @@ SUBDIR+=	tkpiechart
 SUBDIR+=	tuxpaint
 SUBDIR+=	tuxpaint-config
 SUBDIR+=	tuxpaint-stamps
+SUBDIR+=	unpaper
 SUBDIR+=	urt
 SUBDIR+=	vcg
 SUBDIR+=	vertex-theme

@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.48 2026/08/17 15:27:47 ryoon Exp $
+# $NetBSD: Makefile,v 1.50 2026/11/03 10:35:35 tnn Exp $
 
-DISTNAME=	libjpeg-turbo-3.2.0
-PKGREVISION=	2
+DISTNAME=	libjpeg-turbo-3.2.1
 CATEGORIES=	graphics
 MASTER_SITES=	${MASTER_SITE_GITHUB:=libjpeg-turbo/}
 
@@ -16,7 +15,7 @@ LICENSE=	gnu-lgpl-v2 AND ijg # OR wxWindows Library Licence, Version 3.1
 CONFLICTS=	jpeg-[0-9]*
 
 .if ${MACHINE_ARCH} == x86_64 || ${MACHINE_ARCH} == i386
-TOOL_DEPENDS+=	nasm-[0-9]*:../../devel/nasm
+TOOL_DEPENDS+=	nasm>=0:../../devel/nasm
 .endif
 
 USE_LANGUAGES=		c c++
@@ -42,7 +41,7 @@ CMAKE_CONFIGURE_ARGS+=	-DCMAKE_POSITION_INDEPENDENT_CODE=ON
 CMAKE_CONFIGURE_ARGS+=	-DWITH_JPEG8=ON
 CMAKE_CONFIGURE_ARGS+=	-DWITH_SYSTEM_ZLIB=ON
 
-CHECK_PORTABILITY_SKIP+=	release/makemacpkg.in
+CHECK_PORTABILITY_SKIP+=	release/*.in
 
 .if ${MACHINE_ARCH} == "i386"
 CFLAGS+=	-msse2

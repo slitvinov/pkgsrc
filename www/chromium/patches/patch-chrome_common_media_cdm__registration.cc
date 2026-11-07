@@ -1,10 +1,10 @@
-$NetBSD: patch-chrome_common_media_cdm__registration.cc,v 1.28 2026/10/02 11:43:26 kikadf Exp $
+$NetBSD: patch-chrome_common_media_cdm__registration.cc,v 1.31 2026/10/23 15:05:23 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/common/media/cdm_registration.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/common/media/cdm_registration.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/common/media/cdm_registration.cc
 @@ -33,7 +33,7 @@
  #if BUILDFLAG(ENABLE_WIDEVINE)

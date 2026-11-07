@@ -1,10 +1,10 @@
-$NetBSD: patch-net_socket_extra__socket__defines.h,v 1.4 2026/10/02 11:43:33 kikadf Exp $
+$NetBSD: patch-net_socket_extra__socket__defines.h,v 1.7 2026/10/23 15:05:30 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- net/socket/extra_socket_defines.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- net/socket/extra_socket_defines.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ net/socket/extra_socket_defines.h
 @@ -7,7 +7,7 @@
  

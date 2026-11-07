@@ -1,10 +1,10 @@
-$NetBSD: patch-chrome_browser_global__features.h,v 1.28 2026/10/02 11:43:22 kikadf Exp $
+$NetBSD: patch-chrome_browser_global__features.h,v 1.31 2026/10/23 15:05:18 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/global_features.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/global_features.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/global_features.h
 @@ -26,7 +26,7 @@ class GlobalBrowserCollection;
  namespace system_permission_settings {
@@ -15,16 +15,16 @@ $NetBSD: patch-chrome_browser_global__features.h,v 1.28 2026/10/02 11:43:22 kika
  namespace whats_new {
  class WhatsNewRegistry;
  }  // namespace whats_new
-@@ -87,7 +87,7 @@ namespace on_device_translation {
+@@ -90,7 +90,7 @@ namespace on_device_translation {
  class OnDeviceTranslationInstaller;
  }
  
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
  namespace scheduled_restart {
+ class ScheduledRestartBubbleController;
  class ScheduledRestartManager;
- }  // namespace scheduled_restart
-@@ -163,7 +163,7 @@ class GlobalFeatures {
+@@ -167,7 +167,7 @@ class GlobalFeatures {
    system_permissions_platform_handle() {
      return system_permissions_platform_handle_.get();
    }
@@ -33,16 +33,16 @@ $NetBSD: patch-chrome_browser_global__features.h,v 1.28 2026/10/02 11:43:22 kika
    whats_new::WhatsNewRegistry* whats_new_registry() {
      return whats_new_registry_.get();
    }
-@@ -232,7 +232,7 @@ class GlobalFeatures {
+@@ -240,7 +240,7 @@ class GlobalFeatures {
    }
  #endif  // !BUILDFLAG(IS_ANDROID)
  
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
-   scheduled_restart::ScheduledRestartManager* scheduled_restart_manager() {
-     return scheduled_restart_manager_.get();
-   }
-@@ -257,12 +257,12 @@ class GlobalFeatures {
+   scheduled_restart::ScheduledRestartBubbleController*
+   scheduled_restart_bubble_controller() {
+     return scheduled_restart_bubble_controller_.get();
+@@ -270,12 +270,12 @@ class GlobalFeatures {
  
    virtual std::unique_ptr<system_permission_settings::PlatformHandle>
    CreateSystemPermissionsPlatformHandle();
@@ -57,7 +57,7 @@ $NetBSD: patch-chrome_browser_global__features.h,v 1.28 2026/10/02 11:43:22 kika
    virtual std::unique_ptr<scheduled_restart::ScheduledRestartManager>
    CreateScheduledRestartManager();
  #endif
-@@ -281,7 +281,7 @@ class GlobalFeatures {
+@@ -294,7 +294,7 @@ class GlobalFeatures {
  
    std::unique_ptr<system_permission_settings::PlatformHandle>
        system_permissions_platform_handle_;
@@ -66,12 +66,12 @@ $NetBSD: patch-chrome_browser_global__features.h,v 1.28 2026/10/02 11:43:22 kika
    std::unique_ptr<whats_new::WhatsNewRegistry> whats_new_registry_;
  
    std::unique_ptr<default_browser::DefaultBrowserManager>
-@@ -344,7 +344,7 @@ class GlobalFeatures {
+@@ -359,7 +359,7 @@ class GlobalFeatures {
    std::unique_ptr<smart_restart::SmartRestartManager> smart_restart_manager_;
  #endif  // !BUILDFLAG(IS_ANDROID)
  
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+   std::unique_ptr<scheduled_restart::ScheduledRestartBubbleController>
+       scheduled_restart_bubble_controller_;
    std::unique_ptr<scheduled_restart::ScheduledRestartManager>
-       scheduled_restart_manager_;
- #endif

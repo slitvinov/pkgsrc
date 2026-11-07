@@ -1,10 +1,10 @@
-$NetBSD: patch-tools_gn_src_gn_args.cc,v 1.15 2026/10/02 11:43:39 kikadf Exp $
+$NetBSD: patch-tools_gn_src_gn_args.cc,v 1.18 2026/10/23 15:05:36 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- tools/gn/src/gn/args.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- tools/gn/src/gn/args.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ tools/gn/src/gn/args.cc
 @@ -389,7 +389,7 @@ const char* Args::GetHostCpu() {
      return kX86;

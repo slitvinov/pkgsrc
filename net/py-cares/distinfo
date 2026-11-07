@@ -1,5 +1,5 @@
-$NetBSD: distinfo,v 1.17 2026/01/12 21:53:48 wiz Exp $
+$NetBSD: distinfo,v 1.20 2026/10/20 10:01:12 adam Exp $
 
-BLAKE2s (pycares-5.0.1.tar.gz) = 0abbd64ac305c3c1e8b8ee3a0c9867a0fa92d312852020843d35ff0d4ff51bad
-SHA512 (pycares-5.0.1.tar.gz) = 3cb23e36e9526b44398b1ffdf9223f0eec5f6e085b6276188329239d1e9a9ee173239691e39cbc9d7a4854a54e181bd200e2011bb3bf6741f79be81b46665348
-Size (pycares-5.0.1.tar.gz) = 652222 bytes
+BLAKE2s (pycares-5.2.1.tar.gz) = 7b8ecdb5517209892d267a55f611bc9113542b2bf08f63a89ca8f5d11c126ffd
+SHA512 (pycares-5.2.1.tar.gz) = 4e7d6969525cea436798cd0e003eb0fe7cc649e827feffab1b51035ef4a65e78e094117d991c31c2a0716f239d14ce3a00a426d2394fa22d75864a564235698c
+Size (pycares-5.2.1.tar.gz) = 723791 bytes

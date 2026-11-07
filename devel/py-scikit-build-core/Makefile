@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.28 2026/10/04 17:05:45 wiz Exp $
+# $NetBSD: Makefile,v 1.30 2026/11/04 12:06:35 adam Exp $
 
-DISTNAME=	scikit_build_core-1.1.1
+DISTNAME=	scikit_build_core-1.1.2
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/_/-/g}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=s/scikit-build-core/}
@@ -13,9 +13,9 @@ LICENSE=	apache-2.0
 TOOL_DEPENDS+=	${PYPKGPREFIX}-hatch-vcs>=0.4:../../devel/py-hatch-vcs
 TOOL_DEPENDS+=	${PYPKGPREFIX}-hatchling>=1.24:../../devel/py-hatchling
 DEPENDS+=	${PYPKGPREFIX}-packaging>=23.2:../../devel/py-packaging
-DEPENDS+=	${PYPKGPREFIX}-pathspec>=0.10.1:../../devel/py-pathspec
-TEST_DEPENDS+=	cmake-[0-9]*:../../devel/cmake
-TEST_DEPENDS+=	ninja-build-[0-9]*:../../devel/ninja-build
+DEPENDS+=	${PYPKGPREFIX}-pathspec>=0.12.0:../../devel/py-pathspec
+TEST_DEPENDS+=	cmake>=0:../../devel/cmake
+TEST_DEPENDS+=	ninja-build>=0:../../devel/ninja-build
 TEST_DEPENDS+=	${PYPKGPREFIX}-build>=0.8:../../devel/py-build
 TEST_DEPENDS+=	${PYPKGPREFIX}-cattrs>=22.2.0:../../devel/py-cattrs
 TEST_DEPENDS+=	${PYPKGPREFIX}-pip>=24.1:../../devel/py-pip
@@ -36,15 +36,7 @@ USE_LANGUAGES=	c c++
 ALLOW_NETWORK_ACCESS=	yes
 .endif
 
-PY_RENAME_BINARIES+=	scikit-build
-PY_RENAME_BINARIES+=	scikit-build-core
-
-.include "../../lang/python/pyversion.mk"
-.if ${PYTHON_VERSION} < 311
-DEPENDS+=	${PYPKGPREFIX}-exceptiongroup>=1.0:../../devel/py-exceptiongroup
-DEPENDS+=	${PYPKGPREFIX}-tomli>=1.2.2:../../textproc/py-tomli
-DEPENDS+=	${PYPKGPREFIX}-typing-extensions>=4:../../devel/py-typing-extensions
-.endif
+PY_RENAME_BINARIES+=	scikit-build scikit-build-core
 
 .include "../../lang/python/wheel.mk"
 # only needed for testing, but this is not supported by buildlink3, so make it build dependency

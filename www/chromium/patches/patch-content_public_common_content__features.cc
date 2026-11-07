@@ -1,10 +1,10 @@
-$NetBSD: patch-content_public_common_content__features.cc,v 1.28 2026/10/02 11:43:31 kikadf Exp $
+$NetBSD: patch-content_public_common_content__features.cc,v 1.31 2026/10/23 15:05:27 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- content/public/common/content_features.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- content/public/common/content_features.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ content/public/common/content_features.cc
 @@ -159,7 +159,7 @@ BASE_FEATURE(kAttachUnownedInnerWebConte
  
@@ -24,7 +24,7 @@ $NetBSD: patch-content_public_common_content__features.cc,v 1.28 2026/10/02 11:4
               base::FEATURE_ENABLED_BY_DEFAULT
  #else
               base::FEATURE_DISABLED_BY_DEFAULT
-@@ -1279,10 +1279,10 @@ BASE_FEATURE(kWebAssemblyTiering, base::
+@@ -1309,10 +1309,10 @@ BASE_FEATURE(kWebAssemblyTiering, base::
  
  // Enable WebAssembly trap handler.
  BASE_FEATURE(kWebAssemblyTrapHandler,
@@ -37,7 +37,7 @@ $NetBSD: patch-content_public_common_content__features.cc,v 1.28 2026/10/02 11:4
       defined(ARCH_CPU_ARM64))
               base::FEATURE_ENABLED_BY_DEFAULT
  #else
-@@ -1343,7 +1343,11 @@ BASE_FEATURE(kWebUIInProcessResourceLoad
+@@ -1375,7 +1375,11 @@ BASE_FEATURE(kWebUIInProcessResourceLoad
  
  // Controls whether the WebUSB API is enabled:
  // https://wicg.github.io/webusb

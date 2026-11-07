@@ -1,12 +1,12 @@
-$NetBSD: patch-chrome_browser_ui_views_toolbar_toolbar__view.cc,v 1.12 2026/10/02 11:43:25 kikadf Exp $
+$NetBSD: patch-chrome_browser_ui_views_toolbar_toolbar__view.cc,v 1.15 2026/10/23 15:05:21 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/ui/views/toolbar/toolbar_view.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/ui/views/toolbar/toolbar_view.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/ui/views/toolbar/toolbar_view.cc
-@@ -412,7 +412,7 @@ void ToolbarView::Init() {
+@@ -420,7 +420,7 @@ void ToolbarView::Init() {
    }
  
    std::unique_ptr<MediaToolbarButtonView> media_button;

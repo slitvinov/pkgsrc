@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.144 2026/10/04 15:56:09 wiz Exp $
+# $NetBSD: Makefile,v 1.147 2026/10/27 12:28:38 wiz Exp $
 #
 # When updating this, run 'make cfgfiles'.
 
-DISTNAME=	rspamd-4.2.1
+DISTNAME=	rspamd-4.2.3
 CATEGORIES=	mail
 MASTER_SITES=	${MASTER_SITE_GITHUB:=rspamd/}
 
@@ -74,6 +74,9 @@ REPLACE_PERL+=	utils/*.pl
 
 MAKE_DIRS+=	${PKG_SYSCONFDIR}/local.d
 MAKE_DIRS+=	${PKG_SYSCONFDIR}/lua.local.d
+MAKE_DIRS+=	${PKG_SYSCONFDIR}/lua.local.d/maps
+MAKE_DIRS+=	${PKG_SYSCONFDIR}/lua.local.d/regexps
+MAKE_DIRS+=	${PKG_SYSCONFDIR}/lua.local.d/selectors
 MAKE_DIRS+=	${PKG_SYSCONFDIR}/maps.d
 MAKE_DIRS+=	${PKG_SYSCONFDIR}/modules.d
 MAKE_DIRS+=	${PKG_SYSCONFDIR}/modules.local.d
@@ -111,8 +114,10 @@ post-extract:
 post-install:
 	${MV} ${DESTDIR}${PKG_SYSCONFDIR} ${DESTDIR}${PREFIX}/share/examples/rspamd
 
-# as of 4.2.1, after 'make install'
-# 1315 tests 1311 passed 3979 assertions 0 failed 0 errors 4 unassertive 0 pending
+# as of 4.2.2, after 'make install'
+# 1423 tests 1419 passed 5506 assertions 0 failed 0 errors 4 unassertive 0 pending
+# as of 4.2.3, stops early
+# https://github.com/rspamd/rspamd/issues/6342
 
 TEST_ENV+=	LD_LIBRARY_PATH=${WRKSRC}/${CMAKE_BUILD_DIR}/src:${WRKSRC}/${CMAKE_BUILD_DIR}/contrib/replxx:${WRKSRC}/${CMAKE_BUILD_DIR}/contrib/aho-corasick:${WRKSRC}/${CMAKE_BUILD_DIR}/contrib/libev:${WRKSRC}/${CMAKE_BUILD_DIR}/contrib/kann
 

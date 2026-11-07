@@ -1,7 +1,9 @@
-# $NetBSD: Makefile,v 1.649 2026/10/10 00:37:53 alnsn Exp $
+# $NetBSD: Makefile,v 1.652 2026/10/27 19:47:41 drixter Exp $
 
 COMMENT=	Mathematics
 
+SUBDIR+=	4ti2
+SUBDIR+=	HiGHS
 SUBDIR+=	QXlsx
 SUBDIR+=	R
 SUBDIR+=	R-CGIwithR
@@ -313,6 +315,7 @@ SUBDIR+=	mcsim
 SUBDIR+=	meschach
 SUBDIR+=	metis
 SUBDIR+=	minisat
+SUBDIR+=	minizinc
 SUBDIR+=	minpack
 SUBDIR+=	mpcomplex
 SUBDIR+=	mpdecimal

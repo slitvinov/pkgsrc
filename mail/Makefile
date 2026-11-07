@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.698 2026/10/03 15:24:32 wiz Exp $
+# $NetBSD: Makefile,v 1.700 2026/11/04 15:24:58 taca Exp $
 #
 
 COMMENT=	Electronic mail utilities
@@ -68,6 +68,9 @@ SUBDIR+=	deliver
 SUBDIR+=	demime
 SUBDIR+=	distribute
 SUBDIR+=	dk-milter
+SUBDIR+=	dkim-rotate
+SUBDIR+=	dkim-rotate-base
+SUBDIR+=	dkim-rotate-doc
 SUBDIR+=	dkimproxy
 SUBDIR+=	dmarc-report-viewer
 SUBDIR+=	dnsbl-milter
@@ -407,6 +410,7 @@ SUBDIR+=	ruby-actionmailbox80
 SUBDIR+=	ruby-actionmailer72
 SUBDIR+=	ruby-actionmailer80
 SUBDIR+=	ruby-mail
+SUBDIR+=	ruby-mail29
 SUBDIR+=	ruby-mailfactory
 SUBDIR+=	ruby-mime-types
 SUBDIR+=	ruby-mime-types-data

@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.22 2026/09/30 10:39:39 adam Exp $
+# $NetBSD: Makefile,v 1.24 2026/10/19 12:09:24 adam Exp $
 
-DISTNAME=	cftime-1.6.6
+DISTNAME=	cftime-1.6.6.1
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	time python
 MASTER_SITES=	${MASTER_SITE_PYPI:=c/cftime/}
@@ -13,7 +13,7 @@ LICENSE=	gnu-gpl-v3
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
 TEST_DEPENDS+=	${PYPKGPREFIX}-test-cov>=0:../../devel/py-test-cov
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../devel/py-cython/buildlink3.mk"
 .include "../../lang/python/wheel.mk"

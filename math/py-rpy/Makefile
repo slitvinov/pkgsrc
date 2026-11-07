@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.62 2026/09/29 06:06:28 wiz Exp $
+# $NetBSD: Makefile,v 1.64 2026/10/26 06:38:03 wiz Exp $
 
 DISTNAME=	rpy2-3.4.5
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/rpy2/rpy/}
-PKGREVISION=	6
+PKGREVISION=	7
 CATEGORIES=	math python
 MASTER_SITES=	${MASTER_SITE_PYPI:=r/rpy2/}
 
@@ -11,6 +11,7 @@ HOMEPAGE=	https://rpy2.github.io/
 COMMENT=	R interface for Python
 LICENSE=	mpl-1.1 OR gnu-gpl-v2 OR gnu-lgpl-v2.1
 
+TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=84.2:../../devel/py-setuptools
 DEPENDS+=	${PYPKGPREFIX}-jinja2-[0-9]*:../../textproc/py-jinja2
 DEPENDS+=	${PYPKGPREFIX}-tzlocal-[0-9]*:../../time/py-tzlocal
 DEPENDS+=	${PYPKGPREFIX}-pytz-[0-9]*:../../time/py-pytz
@@ -30,7 +31,7 @@ LDFLAGS.SunOS+=		-mimpure-text
 
 REPLACE_PYTHON=		rpy/tests.py
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../devel/pcre2/buildlink3.mk"
 .include "../../lang/python/batteries-included.mk"

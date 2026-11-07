@@ -1,10 +1,10 @@
-$NetBSD: patch-components_cookie__config_cookie__store__util.cc,v 1.28 2026/10/02 11:43:27 kikadf Exp $
+$NetBSD: patch-components_cookie__config_cookie__store__util.cc,v 1.31 2026/10/23 15:05:23 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- components/cookie_config/cookie_store_util.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- components/cookie_config/cookie_store_util.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ components/cookie_config/cookie_store_util.cc
 @@ -16,7 +16,7 @@
  namespace cookie_config {

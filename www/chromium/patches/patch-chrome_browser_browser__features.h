@@ -1,10 +1,10 @@
-$NetBSD: patch-chrome_browser_browser__features.h,v 1.28 2026/10/02 11:43:21 kikadf Exp $
+$NetBSD: patch-chrome_browser_browser__features.h,v 1.31 2026/10/23 15:05:16 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/browser_features.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/browser_features.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/browser_features.h
 @@ -40,7 +40,7 @@ BASE_DECLARE_FEATURE(kCertificateTranspa
  BASE_DECLARE_FEATURE(kCertVerificationNetworkTime);
@@ -15,7 +15,7 @@ $NetBSD: patch-chrome_browser_browser__features.h,v 1.28 2026/10/02 11:43:21 kik
  BASE_DECLARE_FEATURE(kDbusSecretPortal);
  #endif
  
-@@ -84,7 +84,7 @@ BASE_DECLARE_FEATURE(kRestartNetworkServ
+@@ -82,7 +82,7 @@ BASE_DECLARE_FEATURE(kRestartNetworkServ
  BASE_DECLARE_FEATURE(kSandboxExternalProtocolBlocked);
  BASE_DECLARE_FEATURE(kSandboxExternalProtocolBlockedWarning);
  

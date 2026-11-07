@@ -1,10 +1,10 @@
-$NetBSD: patch-chrome_browser_extensions_component__extensions__allowlist_allowlist.cc,v 1.27 2026/10/02 11:43:22 kikadf Exp $
+$NetBSD: patch-chrome_browser_extensions_component__extensions__allowlist_allowlist.cc,v 1.30 2026/10/23 15:05:18 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/extensions/component_extensions_allowlist/allowlist.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/extensions/component_extensions_allowlist/allowlist.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/extensions/component_extensions_allowlist/allowlist.cc
 @@ -56,7 +56,7 @@ bool IsComponentExtensionAllowlisted(con
  #endif  // BUILDFLAG(GOOGLE_CHROME_BRANDING)

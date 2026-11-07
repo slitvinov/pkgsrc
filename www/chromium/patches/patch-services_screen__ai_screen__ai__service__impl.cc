@@ -1,10 +1,10 @@
-$NetBSD: patch-services_screen__ai_screen__ai__service__impl.cc,v 1.24 2026/10/02 11:43:35 kikadf Exp $
+$NetBSD: patch-services_screen__ai_screen__ai__service__impl.cc,v 1.27 2026/10/23 15:05:32 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- services/screen_ai/screen_ai_service_impl.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- services/screen_ai/screen_ai_service_impl.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ services/screen_ai/screen_ai_service_impl.cc
 @@ -32,7 +32,7 @@
  #include "ui/accessibility/ax_tree_id.h"
@@ -15,7 +15,7 @@ $NetBSD: patch-services_screen__ai_screen__ai__service__impl.cc,v 1.24 2026/10/0
  #include "partition_alloc/buildflags.h"
  
  #if PA_BUILDFLAG(USE_PARTITION_ALLOC_AS_MALLOC)
-@@ -212,7 +212,7 @@ ScreenAIService::ScreenAIService(
+@@ -215,7 +215,7 @@ ScreenAIService::ScreenAIService(
      : factory_receiver_(this, std::move(receiver)),
        ocr_receiver_(this),
        main_content_extraction_receiver_(this) {

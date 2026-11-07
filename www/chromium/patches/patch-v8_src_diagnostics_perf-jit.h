@@ -1,10 +1,10 @@
-$NetBSD: patch-v8_src_diagnostics_perf-jit.h,v 1.28 2026/10/02 11:43:41 kikadf Exp $
+$NetBSD: patch-v8_src_diagnostics_perf-jit.h,v 1.31 2026/10/23 15:05:39 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- v8/src/diagnostics/perf-jit.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- v8/src/diagnostics/perf-jit.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ v8/src/diagnostics/perf-jit.h
 @@ -31,7 +31,7 @@
  #include "include/v8config.h"

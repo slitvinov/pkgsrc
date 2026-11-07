@@ -1,10 +1,10 @@
-$NetBSD: patch-third__party_perfetto_include_perfetto_base_build__config.h,v 1.28 2026/10/02 11:43:37 kikadf Exp $
+$NetBSD: patch-third__party_perfetto_include_perfetto_base_build__config.h,v 1.31 2026/10/23 15:05:35 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- third_party/perfetto/include/perfetto/base/build_config.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- third_party/perfetto/include/perfetto/base/build_config.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ third_party/perfetto/include/perfetto/base/build_config.h
 @@ -150,8 +150,8 @@
  #define PERFETTO_BUILDFLAG_DEFINE_PERFETTO_OS_FREEBSD() 0

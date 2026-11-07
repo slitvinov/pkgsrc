@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.124 2026/10/04 17:01:25 wiz Exp $
+# $NetBSD: Makefile,v 1.126 2026/10/16 17:57:44 adam Exp $
 #
 # Changes: https://github.com/pylint-dev/pylint/releases
 
-DISTNAME=	pylint-4.1.2
+DISTNAME=	pylint-4.1.3
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=p/pylint/}
@@ -13,7 +13,7 @@ COMMENT=	Python source code analyzer
 LICENSE=	gnu-gpl-v2
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
-DEPENDS+=	${PYPKGPREFIX}-astroid>=4.0.2:../../devel/py-astroid
+DEPENDS+=	${PYPKGPREFIX}-astroid>=4.3.4:../../devel/py-astroid
 DEPENDS+=	${PYPKGPREFIX}-dill>=0.3.7:../../textproc/py-dill
 DEPENDS+=	${PYPKGPREFIX}-isort>=5:../../devel/py-isort
 DEPENDS+=	${PYPKGPREFIX}-mccabe>=0.6:../../devel/py-mccabe
@@ -29,12 +29,6 @@ PY_RENAME_BINARIES=	pylint pylint-config pyreverse symilar
 
 # as of 4.1.2
 # 13 failed, 2250 passed, 315 skipped, 5 xfailed
-
-.include "../../lang/python/pyversion.mk"
-
-.if ${PYTHON_VERSION} < 311
-DEPENDS+=	${PYPKGPREFIX}-tomli>=1.1:../../textproc/py-tomli
-.endif
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

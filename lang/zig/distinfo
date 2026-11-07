@@ -1,6 +1,7 @@
-$NetBSD: distinfo,v 1.22 2026/04/16 06:38:14 wiz Exp $
+$NetBSD: distinfo,v 1.24 2026/11/04 07:07:08 adam Exp $
 
-BLAKE2s (zig-0.16.0.tar.xz) = 39dead312f45aa9f1b9a45b3171afbe2b2c717309affe925bf2633334fc17371
-SHA512 (zig-0.16.0.tar.xz) = 1404a939c6f233d5f328a4833543d7a2b2d9f0f5081babe6e3ad43daed25bbb0844b28c01c900f64b5bb63ac62b5586457c05380b10494dfefb56f49b58d4a0a
-Size (zig-0.16.0.tar.xz) = 22503260 bytes
-SHA1 (patch-CMakeLists.txt) = 55da2cc8e5a4f92a44ca60a930a041f9cc324eba
+BLAKE2s (zig-0.17.1.tar.xz) = 586422130f21f65e5f56876b88865879ac8cfd0bf562aa8eaacb35aa0f30f5a2
+SHA512 (zig-0.17.1.tar.xz) = f57a59c86ace6bf14698ba3c8c314cfb8716c0ce5ee6817f4c8f89fea90665a45df3f12fa6cc1fb04d49a4c503f76fe6bedf44b15a51f9110ecd667d9e7183fc
+Size (zig-0.17.1.tar.xz) = 23183076 bytes
+SHA1 (patch-CMakeLists.txt) = bb3561135250f31f0023700bb13625eaafabae88
+SHA1 (patch-build.zig) = 98d6c64e74024312e8e27191103c6c90ad10d840

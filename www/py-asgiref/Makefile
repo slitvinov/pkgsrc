@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.42 2026/08/11 05:37:52 adam Exp $
+# $NetBSD: Makefile,v 1.44 2026/10/24 09:33:53 adam Exp $
 
-DISTNAME=	asgiref-3.12.1
+DISTNAME=	asgiref-3.13.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	www python
 MASTER_SITES=	${MASTER_SITE_PYPI:=a/asgiref/}
@@ -11,15 +11,10 @@ COMMENT=	Contains various reference ASGI implementations
 LICENSE=	modified-bsd
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
-TEST_DEPENDS+=	${PYPKGPREFIX}-mypy>=1.14.0:../../lang/py-mypy
-TEST_DEPENDS+=	${PYPKGPREFIX}-test-asyncio-[0-9]*:../../devel/py-test-asyncio
+TEST_DEPENDS+=	${PYPKGPREFIX}-packaging>=0:../../devel/py-packaging
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-asyncio>=0:../../devel/py-test-asyncio
 
 USE_LANGUAGES=	# none
-
-.include "../../lang/python/pyversion.mk"
-.if ${PYTHON_VERSION} < 311
-DEPENDS+=	${PYPKGPREFIX}-typing-extensions>=4:../../devel/py-typing-extensions
-.endif
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

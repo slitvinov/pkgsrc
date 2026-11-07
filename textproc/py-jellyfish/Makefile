@@ -1,12 +1,12 @@
-# $NetBSD: Makefile,v 1.15 2025/10/11 20:45:34 wiz Exp $
+# $NetBSD: Makefile,v 1.19 2026/10/16 07:29:38 wiz Exp $
 
-DISTNAME=	jellyfish-1.2.1
+DISTNAME=	jellyfish-1.3.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	textproc python
 MASTER_SITES=	${MASTER_SITE_PYPI:=j/jellyfish/}
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
-HOMEPAGE=	https://github.com/jamesturk/jellyfish
+HOMEPAGE=	https://codeberg.org/jpt/jellyfish
 COMMENT=	Python library for doing approximate and phonetic matching of strings
 LICENSE=	2-clause-bsd
 

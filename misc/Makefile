@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.695 2026/10/09 09:14:40 adam Exp $
+# $NetBSD: Makefile,v 1.700 2026/10/24 10:47:18 adam Exp $
 #
 
 COMMENT=	Miscellaneous utilities
@@ -16,6 +16,8 @@ SUBDIR+=	akonadiconsole
 SUBDIR+=	ansiweather
 SUBDIR+=	aschord
 SUBDIR+=	ascii
+SUBDIR+=	asciinema
+SUBDIR+=	asciinema-agg
 SUBDIR+=	asr-manpages
 SUBDIR+=	astrolog
 SUBDIR+=	attica
@@ -34,6 +36,7 @@ SUBDIR+=	buffer
 SUBDIR+=	byobu
 SUBDIR+=	cabal-install
 SUBDIR+=	calibre
+SUBDIR+=	cargo-llvm-lines
 SUBDIR+=	cargo-machete
 SUBDIR+=	cargo-sweep
 SUBDIR+=	catpoint
@@ -293,6 +296,7 @@ SUBDIR+=	py-autocommand
 SUBDIR+=	py-copier
 SUBDIR+=	py-crashtest
 SUBDIR+=	py-dep-logic
+SUBDIR+=	py-diagnostic
 SUBDIR+=	py-diff-cover
 SUBDIR+=	py-domdf-python-tools
 SUBDIR+=	py-expandvars
@@ -412,6 +416,7 @@ SUBDIR+=	vym
 SUBDIR+=	wandio
 SUBDIR+=	watch
 SUBDIR+=	wdic
+SUBDIR+=	weatherman
 SUBDIR+=	wemux
 SUBDIR+=	whohas
 SUBDIR+=	window

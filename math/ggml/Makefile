@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.15 2026/10/06 07:46:08 wiz Exp $
+# $NetBSD: Makefile,v 1.18 2026/11/04 17:07:04 wiz Exp $
 
-DISTNAME=	ggml-0.26.0
+DISTNAME=	ggml-0.29.0
 CATEGORIES=	math
 MASTER_SITES=	${MASTER_SITE_GITHUB:=ggml-org/}
 GITHUB_TAG=	v${PKGVERSION_NOREV}

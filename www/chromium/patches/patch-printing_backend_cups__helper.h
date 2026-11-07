@@ -1,10 +1,10 @@
-$NetBSD: patch-printing_backend_cups__helper.h,v 1.24 2026/10/02 11:43:33 kikadf Exp $
+$NetBSD: patch-printing_backend_cups__helper.h,v 1.27 2026/10/23 15:05:30 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- printing/backend/cups_helper.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- printing/backend/cups_helper.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ printing/backend/cups_helper.h
 @@ -32,7 +32,7 @@ constexpr int kCupsTimeoutMs = 3000;
  constexpr cups_ptype_t kDestinationsFilterMask =

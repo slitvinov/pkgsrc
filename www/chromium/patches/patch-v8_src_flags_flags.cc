@@ -1,10 +1,10 @@
-$NetBSD: patch-v8_src_flags_flags.cc,v 1.28 2026/10/02 11:43:41 kikadf Exp $
+$NetBSD: patch-v8_src_flags_flags.cc,v 1.31 2026/10/23 15:05:39 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- v8/src/flags/flags.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- v8/src/flags/flags.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ v8/src/flags/flags.cc
 @@ -19,6 +19,10 @@
  #include <unordered_map>
@@ -17,7 +17,7 @@ $NetBSD: patch-v8_src_flags_flags.cc,v 1.28 2026/10/02 11:43:41 kikadf Exp $
  #include "src/base/fpu.h"
  #include "src/base/hashing.h"
  #include "src/base/lazy-instance.h"
-@@ -983,6 +987,10 @@ void FlagList::FreezeFlags() {
+@@ -989,6 +993,10 @@ void FlagList::FreezeFlags() {
    // Note that for string flags we only protect the pointer itself, but not the
    // string storage. TODO(12887): Fix this.
    base::OS::SetDataReadOnly(&v8_flags, sizeof(v8_flags));

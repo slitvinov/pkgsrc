@@ -1,10 +1,10 @@
-$NetBSD: patch-ui_aura_client_drag__drop__client.h,v 1.28 2026/10/02 11:43:39 kikadf Exp $
+$NetBSD: patch-ui_aura_client_drag__drop__client.h,v 1.31 2026/10/23 15:05:37 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- ui/aura/client/drag_drop_client.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- ui/aura/client/drag_drop_client.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ ui/aura/client/drag_drop_client.h
 @@ -44,7 +44,7 @@ class AURA_EXPORT DragDropClient {
        int allowed_operations,

@@ -1,12 +1,12 @@
-$NetBSD: patch-ui_views_widget_widget.cc,v 1.28 2026/10/02 11:43:41 kikadf Exp $
+$NetBSD: patch-ui_views_widget_widget.cc,v 1.31 2026/10/23 15:05:38 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- ui/views/widget/widget.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- ui/views/widget/widget.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ ui/views/widget/widget.cc
-@@ -76,7 +76,7 @@
+@@ -75,7 +75,7 @@
  #include "ui/views/window/dialog_delegate.h"
  #include "ui/wm/core/window_properties.h"
  
@@ -15,7 +15,7 @@ $NetBSD: patch-ui_views_widget_widget.cc,v 1.28 2026/10/02 11:43:41 kikadf Exp $
  #include "ui/linux/linux_ui.h"
  #endif
  
-@@ -2841,7 +2841,7 @@ const ui::NativeTheme* Widget::GetNative
+@@ -2853,7 +2853,7 @@ const ui::NativeTheme* Widget::GetNative
      return parent_->GetNativeTheme();
    }
  

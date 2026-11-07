@@ -1,10 +1,10 @@
-$NetBSD: patch-components_named__system__lock_lock__unittest.cc,v 1.27 2026/10/02 11:43:28 kikadf Exp $
+$NetBSD: patch-components_named__system__lock_lock__unittest.cc,v 1.30 2026/10/23 15:05:24 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- components/named_system_lock/lock_unittest.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- components/named_system_lock/lock_unittest.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ components/named_system_lock/lock_unittest.cc
 @@ -18,7 +18,7 @@
  #include "build/build_config.h"

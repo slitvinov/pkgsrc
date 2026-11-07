@@ -1,13 +1,13 @@
-$NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.28 2026/10/02 11:43:24 kikadf Exp $
+$NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.31 2026/10/23 15:05:20 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/ui/startup/startup_browser_creator_impl.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/ui/startup/startup_browser_creator_impl.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/ui/startup/startup_browser_creator_impl.cc
-@@ -70,7 +70,7 @@
- #include "content/public/common/content_switches.h"
+@@ -73,7 +73,7 @@
+ #include "ui/base/window_open_disposition.h"
  #include "url/origin.h"
  
 -#if BUILDFLAG(IS_LINUX)
@@ -15,7 +15,7 @@ $NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.
  #include "base/nix/xdg_util.h"
  #include "ui/display/screen.h"
  #endif
-@@ -94,7 +94,7 @@
+@@ -97,7 +97,7 @@
  #include "chrome/browser/ui/browser_window/public/profile_browser_collection.h"
  #endif
  
@@ -24,7 +24,7 @@ $NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.
  #include "chrome/browser/search_integrity/search_integrity.h"
  #include "chrome/browser/search_integrity/search_integrity_factory.h"
  #include "chrome/browser/ui/webui/whats_new/whats_new_fetcher.h"
-@@ -165,7 +165,7 @@ BrowserWindowInterface* GetExistingBrows
+@@ -168,7 +168,7 @@ BrowserWindowInterface* GetExistingBrows
        BrowserCollection::Order::kActivation);
  #endif
  
@@ -33,7 +33,7 @@ $NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.
    const bool match_original_profiles =
        process_startup == chrome::startup::IsProcessStartup::kYes;
    display::Screen* const screen = display::Screen::Get();
-@@ -251,7 +251,7 @@ void StartupBrowserCreatorImpl::Launch(
+@@ -254,7 +254,7 @@ void StartupBrowserCreatorImpl::Launch(
    DCHECK(profile);
    profile_ = profile;
  
@@ -42,7 +42,7 @@ $NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.
    // Check for DSE integrity if flag is enabled.
    if (base::FeatureList::IsEnabled(features::kDseIntegrity)) {
      if (auto* search_integrity_service =
-@@ -305,7 +305,7 @@ BrowserWindowInterface* StartupBrowserCr
+@@ -308,7 +308,7 @@ BrowserWindowInterface* StartupBrowserCr
      profile_ = browser->GetProfile();
    }
  
@@ -51,7 +51,7 @@ $NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.
    std::string startup_id =
        command_line_->GetSwitchValueASCII(base::nix::kXdgActivationTokenSwitch);
    if (startup_id.empty()) {
-@@ -339,7 +339,7 @@ BrowserWindowInterface* StartupBrowserCr
+@@ -342,7 +342,7 @@ BrowserWindowInterface* StartupBrowserCr
      BrowserWindowCreateParams params(profile_, false);
      params.creation_source =
          BrowserWindowCreateParams::CreationSource::kStartupCreator;
@@ -60,7 +60,7 @@ $NetBSD: patch-chrome_browser_ui_startup_startup__browser__creator__impl.cc,v 1.
      params.startup_id = startup_id;
  #endif
      if (command_line_->HasSwitch(switches::kWindowName)) {
-@@ -376,7 +376,7 @@ BrowserWindowInterface* StartupBrowserCr
+@@ -379,7 +379,7 @@ BrowserWindowInterface* StartupBrowserCr
        continue;
      }
  

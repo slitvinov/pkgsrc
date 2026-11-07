@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.8 2026/10/04 17:24:26 wiz Exp $
+# $NetBSD: Makefile,v 1.14 2026/11/01 21:15:32 wiz Exp $
 
-DISTNAME=	grafana-prometheus-datasource-13.2.3
+DISTNAME=	grafana-prometheus-datasource-13.2.5
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_GITHUB:=grafana/}
 GITHUB_TAG=	v${PKGVERSION_NOREV}
@@ -24,9 +24,9 @@ GO_BUILD_PATTERN=	./pkg
 .include "go-modules.mk"
 
 PLUGINDIR=		share/grafana/plugins/prometheus
+INSTALLATION_DIRS+=	${PLUGINDIR}
 
 do-install:
-	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}${PLUGINDIR}
 	cd ${WRKDIR}/linux/prometheus && \
 	  ${PAX} -rw . ${DESTDIR}${PREFIX}/${PLUGINDIR}/.
 	${RM} -f ${DESTDIR}${PREFIX}/${PLUGINDIR}/gpx_grafana-prometheus-datasource_linux_amd64

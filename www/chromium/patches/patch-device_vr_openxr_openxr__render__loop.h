@@ -1,10 +1,10 @@
-$NetBSD: patch-device_vr_openxr_openxr__render__loop.h,v 1.2 2026/10/02 11:43:31 kikadf Exp $
+$NetBSD: patch-device_vr_openxr_openxr__render__loop.h,v 1.5 2026/10/23 15:05:28 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- device/vr/openxr/openxr_render_loop.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- device/vr/openxr/openxr_render_loop.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ device/vr/openxr/openxr_render_loop.h
 @@ -38,7 +38,7 @@
  #include "third_party/openxr/src/include/openxr/openxr.h"

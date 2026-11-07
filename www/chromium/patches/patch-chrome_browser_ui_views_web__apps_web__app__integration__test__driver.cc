@@ -1,12 +1,12 @@
-$NetBSD: patch-chrome_browser_ui_views_web__apps_web__app__integration__test__driver.cc,v 1.28 2026/10/02 11:43:25 kikadf Exp $
+$NetBSD: patch-chrome_browser_ui_views_web__apps_web__app__integration__test__driver.cc,v 1.31 2026/10/23 15:05:21 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/ui/views/web_apps/web_app_integration_test_driver.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/ui/views/web_apps/web_app_integration_test_driver.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/ui/views/web_apps/web_app_integration_test_driver.cc
-@@ -569,7 +569,7 @@ std::string GetFileExtension(FileExtensi
+@@ -574,7 +574,7 @@ std::string GetFileExtension(FileExtensi
  }
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || \
@@ -15,7 +15,7 @@ $NetBSD: patch-chrome_browser_ui_views_web__apps_web__app__integration__test__dr
  SiteConfig GetSiteConfigurationFromAppName(const std::string& app_name) {
    SiteConfig config;
    bool is_app_found = false;
-@@ -2327,7 +2327,7 @@ void WebAppIntegrationTestDriver::Delete
+@@ -2328,7 +2328,7 @@ void WebAppIntegrationTestDriver::Delete
    if (app_name.empty()) {
      app_name = GetSiteConfiguration(site).app_name;
    }

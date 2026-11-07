@@ -1,10 +1,10 @@
-$NetBSD: patch-third__party_angle_src_common_platform.h,v 1.28 2026/10/02 11:43:35 kikadf Exp $
+$NetBSD: patch-third__party_angle_src_common_platform.h,v 1.31 2026/10/23 15:05:33 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- third_party/angle/src/common/platform.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- third_party/angle/src/common/platform.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ third_party/angle/src/common/platform.h
 @@ -23,8 +23,19 @@
  #elif defined(__linux__) || defined(EMSCRIPTEN)

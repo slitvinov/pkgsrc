@@ -1,8 +1,8 @@
-$NetBSD: distinfo,v 1.81 2026/10/04 15:56:09 wiz Exp $
+$NetBSD: distinfo,v 1.83 2026/10/27 12:28:38 wiz Exp $
 
-BLAKE2s (rspamd-4.2.1.tar.gz) = 026f81da309408eb431313987b22a33323cb2dabf1bd2c125177faf5901ca38b
-SHA512 (rspamd-4.2.1.tar.gz) = 985f0afd4c7d3e71e02daee4c0d14236f582c9787dd1f8fd4a723076139b1ae1e1adea89460394bdb5403375500c9b18c791e84f6f586c19d583e903e43420a3
-Size (rspamd-4.2.1.tar.gz) = 7430978 bytes
+BLAKE2s (rspamd-4.2.3.tar.gz) = 8f2ae8d0c608f456aabf8799f3c20f0b859ed8ce3a7d7e301568f1d5020c83fd
+SHA512 (rspamd-4.2.3.tar.gz) = 7ac82d547b849897e795d2b8060edae062618a7e0d193185d97415dd04356c8003c5857ba26ca61531641819838de198a900c76e0b05385f9b3c69f6fd4ce8bd
+Size (rspamd-4.2.3.tar.gz) = 7556079 bytes
 SHA1 (patch-CMakeLists.txt) = 25a1264b573d5a1f7ff9a1ac7b8453c5d9cb0a06
 SHA1 (patch-cmake_Toolset.cmake) = fbc4027fedb4261ce913701ebbb32d8395bc7783
 SHA1 (patch-contrib_fpconv_fpconv.c) = b1ec2b07570674458e69020ccbf25f0374d894f6

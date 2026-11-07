@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.2 2026/10/07 11:02:28 drixter Exp $
+# $NetBSD: Makefile,v 1.5 2026/11/01 09:15:16 drixter Exp $
 
-DISTNAME=	gobgp-4.10.0
+DISTNAME=	gobgp-4.11.0
 CATEGORIES=	net
 MASTER_SITES=	${MASTER_SITE_GITHUB:=osrg/}
 GITHUB_TAG=	v${PKGVERSION_NOREV}

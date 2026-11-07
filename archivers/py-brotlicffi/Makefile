@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.6 2026/08/23 07:52:58 wiz Exp $
+# $NetBSD: Makefile,v 1.11 2026/10/26 15:22:33 ktnb Exp $
 
-DISTNAME=	brotlicffi-1.2.0.2
+DISTNAME=	brotlicffi-1.2.1.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+PKGREVISION=	1
 CATEGORIES=	archivers python
 MASTER_SITES=	${MASTER_SITE_PYPI:=b/brotlicffi/}
 
@@ -10,7 +11,7 @@ HOMEPAGE=	https://github.com/python-hyper/brotlicffi
 COMMENT=	Python CFFI bindings to the Brotli library
 LICENSE=	mit
 
-TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=0:../../devel/py-setuptools
+TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=84.2:../../devel/py-setuptools
 DEPENDS+=	${PYPKGPREFIX}-cffi>=1.0.0:../../devel/py-cffi
 
 MAKE_ENV+=	USE_SHARED_BROTLI=1

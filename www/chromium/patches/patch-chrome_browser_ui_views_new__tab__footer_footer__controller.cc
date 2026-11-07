@@ -1,12 +1,12 @@
-$NetBSD: patch-chrome_browser_ui_views_new__tab__footer_footer__controller.cc,v 1.26 2026/10/02 11:43:25 kikadf Exp $
+$NetBSD: patch-chrome_browser_ui_views_new__tab__footer_footer__controller.cc,v 1.29 2026/10/23 15:05:21 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/ui/views/new_tab_footer/footer_controller.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/ui/views/new_tab_footer/footer_controller.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/ui/views/new_tab_footer/footer_controller.cc
-@@ -56,7 +56,7 @@ NewTabFooterController::NewTabFooterCont
+@@ -57,7 +57,7 @@ NewTabFooterController::NewTabFooterCont
        base::BindRepeating(&NewTabFooterController::UpdateFooterVisibilities,
                            weak_factory_.GetWeakPtr(),
                            /*log_on_load_metric=*/false));

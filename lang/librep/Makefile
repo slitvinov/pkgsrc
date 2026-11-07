@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.69 2025/09/30 14:29:17 gutteridge Exp $
+# $NetBSD: Makefile,v 1.73 2026/10/19 23:16:57 gutteridge Exp $
 #
 
 DISTNAME=		librep_0.92.7
@@ -9,7 +9,7 @@ MASTER_SITES=		https://www.aydogan.net/distfiles/lang/
 EXTRACT_SUFX=		.tar.xz
 
 MAINTAINER=		pkgsrc-users@NetBSD.org
-HOMEPAGE=		http://sawfish.wikia.com/
+HOMEPAGE=		https://sawfish.wikia.com/
 COMMENT=		Emacs Lisp-like runtime library, interpreter, compiler and VM
 LICENSE=		gnu-gpl-v2
 
@@ -24,6 +24,8 @@ GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-readline
 CONFIGURE_ARGS+=	--with-gmp
 CONFIGURE_ARGS+=	--enable-static
+
+CFLAGS+=	-Wno-incompatible-pointer-types
 
 .include "../../mk/bsd.prefs.mk"
 

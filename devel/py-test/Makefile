@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.145 2026/06/23 06:00:45 adam Exp $
+# $NetBSD: Makefile,v 1.147 2026/10/28 05:36:48 adam Exp $
 
-DISTNAME=	pytest-9.1.1
+DISTNAME=	pytest-9.2.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/py//}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=p/pytest/}
@@ -11,17 +11,17 @@ COMMENT=	Python testing tool
 LICENSE=	mit
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
-TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools_scm>=6.2.3:../../devel/py-setuptools_scm
-DEPENDS+=	${PYPKGPREFIX}-iniconfig>=1.0.1:../../devel/py-iniconfig
-DEPENDS+=	${PYPKGPREFIX}-packaging>=22:../../devel/py-packaging
-DEPENDS+=	${PYPKGPREFIX}-pluggy>=1.5:../../devel/py-pluggy
-DEPENDS+=	${PYPKGPREFIX}-pygments>=2.7.2:../../textproc/py-pygments
-TEST_DEPENDS+=	${PYPKGPREFIX}-argcomplete-[0-9]*:../../devel/py-argcomplete
-TEST_DEPENDS+=	${PYPKGPREFIX}-attrs>=19.2:../../devel/py-attrs
-TEST_DEPENDS+=	${PYPKGPREFIX}-hypothesis>=3.56:../../devel/py-hypothesis
-TEST_DEPENDS+=	${PYPKGPREFIX}-mock-[0-9]*:../../devel/py-mock
-TEST_DEPENDS+=	${PYPKGPREFIX}-requests-[0-9]*:../../devel/py-requests
-TEST_DEPENDS+=	${PYPKGPREFIX}-xmlschema-[0-9]*:../../textproc/py-xmlschema
+TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools_scm>=10.1:../../devel/py-setuptools_scm
+DEPENDS+=	${PYPKGPREFIX}-iniconfig>=2:../../devel/py-iniconfig
+DEPENDS+=	${PYPKGPREFIX}-packaging>=24:../../devel/py-packaging
+DEPENDS+=	${PYPKGPREFIX}-pluggy>=1.6:../../devel/py-pluggy
+DEPENDS+=	${PYPKGPREFIX}-pygments>=2.15:../../textproc/py-pygments
+TEST_DEPENDS+=	${PYPKGPREFIX}-argcomplete>=0:../../devel/py-argcomplete
+TEST_DEPENDS+=	${PYPKGPREFIX}-attrs>=23.1:../../devel/py-attrs
+TEST_DEPENDS+=	${PYPKGPREFIX}-hypothesis>=6.75:../../devel/py-hypothesis
+TEST_DEPENDS+=	${PYPKGPREFIX}-mock>=0:../../devel/py-mock
+TEST_DEPENDS+=	${PYPKGPREFIX}-requests>=0:../../devel/py-requests
+TEST_DEPENDS+=	${PYPKGPREFIX}-xmlschema>=0:../../textproc/py-xmlschema
 
 USE_LANGUAGES=	# none
 USE_TOOLS+=	bash:build
@@ -30,12 +30,6 @@ PY_RENAME_BINARIES=	py.test pytest
 
 # as of 8.3.3
 # 3621 passed, 112 skipped, 11 xfailed, 1 xpassed
-
-.include "../../lang/python/pyversion.mk"
-.if ${PYTHON_VERSION} < 311
-DEPENDS+=	${PYPKGPREFIX}-exceptiongroup>=1:../../devel/py-exceptiongroup
-DEPENDS+=	${PYPKGPREFIX}-tomli>=1:../../textproc/py-tomli
-.endif
 
 .include "../../lang/python/batteries-included.mk"
 .include "../../lang/python/wheel.mk"

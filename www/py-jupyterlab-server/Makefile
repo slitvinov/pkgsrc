@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.12 2026/06/28 15:41:47 wiz Exp $
+# $NetBSD: Makefile,v 1.14 2026/10/23 13:16:13 adam Exp $
 
-DISTNAME=	jupyterlab_server-2.28.0
+DISTNAME=	jupyterlab_server-2.28.1
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/_/-/}
 CATEGORIES=	www python
 MASTER_SITES=	${MASTER_SITE_PYPI:=j/jupyterlab_server/}
@@ -18,17 +18,17 @@ DEPENDS+=	${PYPKGPREFIX}-jsonschema>=4.18.0:../../textproc/py-jsonschema
 DEPENDS+=	${PYPKGPREFIX}-jupyter_server>=1.21:../../www/py-jupyter_server
 DEPENDS+=	${PYPKGPREFIX}-packaging>=21.3:../../devel/py-packaging
 DEPENDS+=	${PYPKGPREFIX}-requests>=2.31:../../devel/py-requests
-TEST_DEPENDS+=	${PYPKGPREFIX}-ipykernel-[0-9]*:../../devel/py-ipykernel
-TEST_DEPENDS+=	${PYPKGPREFIX}-ruamel-yaml-[0-9]*:../../devel/py-ruamel-yaml
-TEST_DEPENDS+=	${PYPKGPREFIX}-test-console-scripts-[0-9]*:../../devel/py-test-console-scripts
-TEST_DEPENDS+=	${PYPKGPREFIX}-test-cov-[0-9]*:../../devel/py-test-cov
+TEST_DEPENDS+=	${PYPKGPREFIX}-ipykernel>=0:../../devel/py-ipykernel
+TEST_DEPENDS+=	${PYPKGPREFIX}-ruamel-yaml>=0:../../devel/py-ruamel-yaml
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-console-scripts>=0:../../devel/py-test-console-scripts
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-cov>=0:../../devel/py-test-cov
 TEST_DEPENDS+=	${PYPKGPREFIX}-test-jupyter>=0.6.2:../../www/py-test-jupyter
-TEST_DEPENDS+=	${PYPKGPREFIX}-test-timeout-[0-9]*:../../devel/py-test-timeout
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-timeout>=0:../../devel/py-test-timeout
 # TODO: strict_rfc3339
 
 USE_LANGUAGES=		# none
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

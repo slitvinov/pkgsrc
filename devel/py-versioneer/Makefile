@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.2 2023/07/24 04:55:34 adam Exp $
+# $NetBSD: Makefile,v 1.4 2026/10/17 13:40:42 wiz Exp $
 
 DISTNAME=	versioneer-0.29
+PKGREVISION=	1
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=v/versioneer/}
@@ -10,20 +11,15 @@ HOMEPAGE=	https://github.com/python-versioneer/python-versioneer
 COMMENT=	Version-string management for VCS-controlled trees
 LICENSE=	unlicense
 
+TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=0:../../devel/py-setuptools
+TEST_DEPENDS+=	${PYPKGPREFIX}-wheel>=0:../../devel/py-wheel
+
 USE_LANGUAGES=	# none
 
-USE_PKG_RESOURCES=	yes
+PY_RENAME_BINARIES=	versioneer
 
-PYTHON_VERSIONS_INCOMPATIBLE=	27
+# as of 0.29
+# 1 warning, 2 errors
 
-.include "../../lang/python/pyversion.mk"
-.if ${PYTHON_VERSION} < 311
-DEPENDS+=	${PYPKGPREFIX}-tomli-[0-9]*:../../textproc/py-tomli
-.endif
-
-post-install:
-	cd ${DESTDIR}${PREFIX}/bin && \
-	${MV} versioneer versioneer-${PYVERSSUFFIX} || ${TRUE}
-
-.include "../../lang/python/egg.mk"
+.include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.40 2026/09/10 07:20:28 adam Exp $
+# $NetBSD: Makefile,v 1.43 2026/11/03 07:47:18 adam Exp $
 
-DISTNAME=	anyio-4.15.1
+DISTNAME=	anyio-4.16.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=a/anyio/}
@@ -31,9 +31,7 @@ USE_LANGUAGES=	# none
 # Fatal Python error: Aborted
 
 .include "../../lang/python/pyversion.mk"
-.if ${PYTHON_VERSION} < 311
-DEPENDS+=	${PYPKGPREFIX}-exceptiongroup>=1.0.2:../../devel/py-exceptiongroup
-.endif
+
 .if ${PYTHON_VERSION} < 315
 DEPENDS+=	${PYPKGPREFIX}-typing-extensions>=4.16.0:../../devel/py-typing-extensions
 .endif

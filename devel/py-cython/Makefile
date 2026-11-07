@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.122 2026/08/25 10:50:00 wiz Exp $
+# $NetBSD: Makefile,v 1.124 2026/11/04 10:45:26 adam Exp $
 
-DISTNAME=	cython-3.3.0
+DISTNAME=	cython-3.3.1
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
-PKGREVISION=	1
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=C/Cython/}
 
@@ -20,7 +19,7 @@ REPLACE_PYTHON+=	cython.py
 
 PY_RENAME_BINARIES=	cython cythonize cygdb
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 USE_CC_FEATURES=	c99
 # error: 'for' loop initial declarations are only allowed in C99 mode

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.56 2026/10/07 15:52:18 nia Exp $
+# $NetBSD: Makefile,v 1.58 2026/11/02 14:53:49 nia Exp $
 
 PM_GTK_VER=	2
 

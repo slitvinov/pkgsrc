@@ -1,12 +1,12 @@
-$NetBSD: patch-ui_compositor_compositor.cc,v 1.28 2026/10/02 11:43:39 kikadf Exp $
+$NetBSD: patch-ui_compositor_compositor.cc,v 1.31 2026/10/23 15:05:37 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- ui/compositor/compositor.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- ui/compositor/compositor.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ ui/compositor/compositor.cc
-@@ -982,7 +982,7 @@ void Compositor::OnResume() {
+@@ -981,7 +981,7 @@ void Compositor::OnResume() {
      obs.ResetIfActive();
  }
  

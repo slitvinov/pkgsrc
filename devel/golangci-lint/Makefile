@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.66 2026/09/05 19:09:45 bsiegert Exp $
+# $NetBSD: Makefile,v 1.68 2026/10/20 20:28:01 bsiegert Exp $
 
 GITHUB_TAG=	v${PKGVERSION_NOREV}
 DISTNAME=	golangci-lint-2.8.0
-PKGREVISION=	10
+PKGREVISION=	12
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_GITHUB:=golangci/}
 

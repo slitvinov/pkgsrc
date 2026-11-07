@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.16 2026/10/01 07:28:53 adam Exp $
+@comment $NetBSD: PLIST,v 1.18 2026/10/26 13:02:36 adam Exp $
 bin/idle${PY_VER_SUFFIX}
 bin/pydoc${PY_VER_SUFFIX}
 bin/python${PY_VER_SUFFIX}
@@ -1159,7 +1159,7 @@ lib/python${PY_VER_SUFFIX}/ensurepip/__init__.pyo
 lib/python${PY_VER_SUFFIX}/ensurepip/__main__.py
 lib/python${PY_VER_SUFFIX}/ensurepip/__main__.pyc
 lib/python${PY_VER_SUFFIX}/ensurepip/__main__.pyo
-lib/python${PY_VER_SUFFIX}/ensurepip/_bundled/pip-26.2.1-py3-none-any.whl
+lib/python${PY_VER_SUFFIX}/ensurepip/_bundled/pip-26.2.2-py3-none-any.whl
 lib/python${PY_VER_SUFFIX}/ensurepip/_uninstall.py
 lib/python${PY_VER_SUFFIX}/ensurepip/_uninstall.pyc
 lib/python${PY_VER_SUFFIX}/ensurepip/_uninstall.pyo
@@ -2215,6 +2215,7 @@ lib/python${PY_VER_SUFFIX}/test/certdata/capath/99d0fa06.0
 lib/python${PY_VER_SUFFIX}/test/certdata/capath/b1930218.0
 lib/python${PY_VER_SUFFIX}/test/certdata/capath/ceff1710.0
 lib/python${PY_VER_SUFFIX}/test/certdata/cert3.pem
+lib/python${PY_VER_SUFFIX}/test/certdata/distrusted.zip
 lib/python${PY_VER_SUFFIX}/test/certdata/ffdh3072.pem
 lib/python${PY_VER_SUFFIX}/test/certdata/idnsans.pem
 lib/python${PY_VER_SUFFIX}/test/certdata/keycert.passwd.pem

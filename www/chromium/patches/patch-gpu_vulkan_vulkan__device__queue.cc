@@ -1,10 +1,10 @@
-$NetBSD: patch-gpu_vulkan_vulkan__device__queue.cc,v 1.28 2026/10/02 11:43:32 kikadf Exp $
+$NetBSD: patch-gpu_vulkan_vulkan__device__queue.cc,v 1.31 2026/10/23 15:05:28 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- gpu/vulkan/vulkan_device_queue.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- gpu/vulkan/vulkan_device_queue.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ gpu/vulkan/vulkan_device_queue.cc
 @@ -141,7 +141,7 @@ bool VulkanDeviceQueue::Initialize(
  

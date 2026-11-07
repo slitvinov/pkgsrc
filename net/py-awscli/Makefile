@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.85 2026/09/02 09:01:37 adam Exp $
+# $NetBSD: Makefile,v 1.87 2026/10/23 05:58:11 adam Exp $
 
-DISTNAME=	awscli-1.46.1
+DISTNAME=	awscli-1.46.2
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	net python
 MASTER_SITES=	${MASTER_SITE_PYPI:=a/awscli/}
@@ -23,7 +23,7 @@ USE_LANGUAGES=	# none
 
 PYTHON_SELF_CONFLICT=	yes
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

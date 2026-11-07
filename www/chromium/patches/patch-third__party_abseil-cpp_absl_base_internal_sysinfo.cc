@@ -1,10 +1,10 @@
-$NetBSD: patch-third__party_abseil-cpp_absl_base_internal_sysinfo.cc,v 1.28 2026/10/02 11:43:35 kikadf Exp $
+$NetBSD: patch-third__party_abseil-cpp_absl_base_internal_sysinfo.cc,v 1.31 2026/10/23 15:05:33 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- third_party/abseil-cpp/absl/base/internal/sysinfo.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- third_party/abseil-cpp/absl/base/internal/sysinfo.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ third_party/abseil-cpp/absl/base/internal/sysinfo.cc
 @@ -49,7 +49,7 @@
  #include <sys/syscall.h>

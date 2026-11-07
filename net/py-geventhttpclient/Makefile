@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.21 2026/07/02 07:55:19 adam Exp $
+# $NetBSD: Makefile,v 1.23 2026/10/19 15:55:15 adam Exp $
 
-DISTNAME=	geventhttpclient-2.3.9
+DISTNAME=	geventhttpclient-2.6.1
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	net python
 MASTER_SITES=	${MASTER_SITE_PYPI:=g/geventhttpclient/}
@@ -11,13 +11,16 @@ COMMENT=	HTTP client library for gevent
 LICENSE=	mit
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
-DEPENDS+=	${PYPKGPREFIX}-brotli-[0-9]*:../../archivers/py-brotli
-DEPENDS+=	${PYPKGPREFIX}-certifi-[0-9]*:../../security/py-certifi
-DEPENDS+=	${PYPKGPREFIX}-gevent>=0.13:../../net/py-gevent
-DEPENDS+=	${PYPKGPREFIX}-urllib3-[0-9]*:../../www/py-urllib3
-TEST_DEPENDS+=	${PYPKGPREFIX}-dpkt-[0-9]*:../../net/py-dpkt
+TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools_scm>=8:../../devel/py-setuptools_scm
+DEPENDS+=	${PYPKGPREFIX}-brotli>=0:../../archivers/py-brotli
+DEPENDS+=	${PYPKGPREFIX}-certifi>=0:../../security/py-certifi
+DEPENDS+=	${PYPKGPREFIX}-gevent>=25.9:../../net/py-gevent
+TEST_DEPENDS+=	${PYPKGPREFIX}-dpkt>=0:../../net/py-dpkt
+TEST_DEPENDS+=	${PYPKGPREFIX}-httplib2>=0:../../www/py-httplib2
+TEST_DEPENDS+=	${PYPKGPREFIX}-requests>=0:../../devel/py-requests
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-rerunfailures>=0:../../devel/py-test-rerunfailures
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

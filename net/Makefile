@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1676 2026/10/08 21:12:40 wiz Exp $
+# $NetBSD: Makefile,v 1.1679 2026/10/30 21:38:19 drixter Exp $
 #
 
 COMMENT=	Networking tools
@@ -50,6 +50,7 @@ SUBDIR+=	bgpdump
 SUBDIR+=	bgpipe
 SUBDIR+=	bgpq4
 SUBDIR+=	bind918
+SUBDIR+=	bind920
 SUBDIR+=	bird
 SUBDIR+=	bmon
 SUBDIR+=	bombadillo
@@ -77,6 +78,7 @@ SUBDIR+=	cisco-mibs
 SUBDIR+=	citrix_ica
 SUBDIR+=	clisp-rawsock
 SUBDIR+=	clive
+SUBDIR+=	cloudflare-speed-cli
 SUBDIR+=	cmu-dhcpd
 SUBDIR+=	cntlm
 SUBDIR+=	coda
@@ -461,6 +463,7 @@ SUBDIR+=	ncdc
 SUBDIR+=	ncftp3
 SUBDIR+=	ncgopher
 SUBDIR+=	ndiff
+SUBDIR+=	ndp-proxy-go
 SUBDIR+=	ndpi
 SUBDIR+=	nemesis
 SUBDIR+=	net-snmp

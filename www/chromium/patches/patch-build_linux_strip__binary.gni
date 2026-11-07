@@ -1,14 +1,14 @@
-$NetBSD: patch-build_linux_strip__binary.gni,v 1.19 2026/10/02 11:43:20 kikadf Exp $
+$NetBSD: patch-build_linux_strip__binary.gni,v 1.22 2026/10/23 15:05:16 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- build/linux/strip_binary.gni.orig	2026-09-22 00:09:16.000000000 +0000
+--- build/linux/strip_binary.gni.orig	2026-10-19 20:07:21.000000000 +0000
 +++ build/linux/strip_binary.gni
-@@ -21,8 +21,8 @@ template("strip_binary") {
-                            "testonly",
+@@ -22,8 +22,8 @@ template("strip_binary") {
                           ])
+ 
    action("${target_name}") {
 -    llvm_strip_binary = "${clang_base_path}/bin/llvm-strip"
 -    llvm_objcopy_binary = "${clang_base_path}/bin/llvm-objcopy"

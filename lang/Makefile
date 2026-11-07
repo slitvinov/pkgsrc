@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.803 2026/10/09 14:31:31 ktnb Exp $
+# $NetBSD: Makefile,v 1.809 2026/10/16 17:08:34 adam Exp $
 #
 
 COMMENT=	Programming languages
@@ -122,6 +122,7 @@ SUBDIR+=	ghc96
 SUBDIR+=	ghc98
 SUBDIR+=	gjs
 SUBDIR+=	gleam
+SUBDIR+=	gnu-apl
 SUBDIR+=	gnucobol
 SUBDIR+=	go
 SUBDIR+=	go-bin
@@ -138,7 +139,6 @@ SUBDIR+=	goplus
 SUBDIR+=	gpc
 SUBDIR+=	gprolog
 SUBDIR+=	guile18
-SUBDIR+=	guile20
 SUBDIR+=	guile22
 SUBDIR+=	guile30
 SUBDIR+=	gwydion-dylan
@@ -215,7 +215,6 @@ SUBDIR+=	mono
 SUBDIR+=	mono-basic
 SUBDIR+=	moscow_ml
 SUBDIR+=	mozjs128
-SUBDIR+=	mozjs78
 SUBDIR+=	mpd
 SUBDIR+=	mujs
 SUBDIR+=	nawk
@@ -300,17 +299,17 @@ SUBDIR+=	py-spark-parser
 SUBDIR+=	py-test-mypy-testing
 SUBDIR+=	py-uncompyle6
 SUBDIR+=	py27-html-docs
-SUBDIR+=	py310-html-docs
 SUBDIR+=	py311-html-docs
 SUBDIR+=	py312-html-docs
 SUBDIR+=	py313-html-docs
 SUBDIR+=	py314-html-docs
+SUBDIR+=	py315-html-docs
 SUBDIR+=	python27
-SUBDIR+=	python310
 SUBDIR+=	python311
 SUBDIR+=	python312
 SUBDIR+=	python313
 SUBDIR+=	python314
+SUBDIR+=	python315
 SUBDIR+=	qbe
 SUBDIR+=	qore
 SUBDIR+=	qt6-qtdeclarative

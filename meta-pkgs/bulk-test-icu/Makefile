@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.22 2026/07/29 06:27:08 wiz Exp $
+# $NetBSD: Makefile,v 1.24 2026/10/16 19:44:06 adam Exp $
 
-DISTNAME=	bulk-test-icu-20260717
+DISTNAME=	bulk-test-icu-20261011
 CATEGORIES=	meta-pkgs
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -14,7 +14,7 @@ RESTRICTED=		Just for test build purposes
 NO_BIN_ON_CDROM=	${RESTRICTED}
 NO_BIN_ON_FTP=		${RESTRICTED}
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 PHP_VERSIONS_ACCEPTED=		82 83 # php-http4
 
 # All of these (primarily leaf) packages depend on ICU.
@@ -75,7 +75,7 @@ DEPENDS+=	vtk-[0-9]*:../../graphics/vtk
 DEPENDS+=	gnuradio-core-[0-9]*:../../ham/gnuradio-core
 DEPENDS+=	ibus-qt-[0-9]*:../../inputmethod/ibus-qt
 DEPENDS+=	mono-[0-9]*:../../lang/mono
-DEPENDS+=	mozjs78-[0-9]*:../../lang/mozjs78
+DEPENDS+=	mozjs128-[0-9]*:../../lang/mozjs128
 # Testing the latest node.js
 DEPENDS+=	nodejs-[0-9]*:../../lang/nodejs
 #DEPENDS+=	nodejs18-[0-9]*:../../lang/nodejs18

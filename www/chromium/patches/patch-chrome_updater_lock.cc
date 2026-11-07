@@ -1,10 +1,10 @@
-$NetBSD: patch-chrome_updater_lock.cc,v 1.28 2026/10/02 11:43:27 kikadf Exp $
+$NetBSD: patch-chrome_updater_lock.cc,v 1.31 2026/10/23 15:05:23 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/updater/lock.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/updater/lock.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/updater/lock.cc
 @@ -26,7 +26,7 @@ namespace updater {
  std::unique_ptr<ScopedLock> CreateScopedLock(const std::string& name,

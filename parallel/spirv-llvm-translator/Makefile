@@ -1,9 +1,10 @@
-# $NetBSD: Makefile,v 1.18 2026/09/02 14:11:41 adam Exp $
+# $NetBSD: Makefile,v 1.20 2026/10/11 16:02:22 wiz Exp $
 
 # Note that parallel/spirv-headers must be kept in sync with what this
 # package expects.
-DISTNAME=	SPIRV-LLVM-Translator-21.1.11
+DISTNAME=	SPIRV-LLVM-Translator-22.1.7
 PKGNAME=	${DISTNAME:tl}
+PKGREVISION=	1
 CATEGORIES=	parallel
 MASTER_SITES=	${MASTER_SITE_GITHUB:=KhronosGroup/}
 GITHUB_TAG=	v${PKGVERSION_NOREV}

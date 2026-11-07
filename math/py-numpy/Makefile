@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.158 2026/09/08 05:08:26 adam Exp $
+# $NetBSD: Makefile,v 1.160 2026/10/16 19:44:04 adam Exp $
 
-DISTNAME=	numpy-2.5.3
+DISTNAME=	numpy-2.5.4
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	math python
 MASTER_SITES=	${MASTER_SITE_PYPI:=n/numpy/}
@@ -23,7 +23,7 @@ USE_TOOLS+=		pkg-config
 # meson checks for gcc 10.3
 GCC_REQD+=		10
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../math/py-numpy/make_env.mk"
 

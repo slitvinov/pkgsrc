@@ -107,6 +107,13 @@ cg			Add support for the Cg compiler.
 cgi			Enable CGI support.
 chafa			Use libchafa to output images as ascii art.
 chasen			Use ChaSen as the Japanese Morphological Analzer.
+chipass-browser	Enable KeePassXC-Browser extension support.
+chipass-browser-passkey	Enable Passkeys support for browser integration.
+chipass-fdosecrets	Enable Freedesktop.org Secrets Service support.
+chipass-keeshare	Enable KeeShare group synchronization extension.
+chipass-networking	Enable Networking support.
+chipass-sshagent	Enable SSHAgent support.
+chipass-yubikey	Enable YubiKey HMAC-SHA1 authentication support.
 chromaprint		Enable chromaprint (audio fingerprinting) support.
 cjk			Enable Chinese/Japanese/Korean support.
 clamav			Enable ClamAV support.
@@ -449,12 +456,9 @@ jxl			Enable JPEG XL support using the libjxl library.
 kde			Enable KDE support.
 kde4			Enable support for KDE 4.
 keepassxc-browser	Enable KeePassXC-Browser extension support.
-keepassxc-browser-passkey	Enable Passkeys support for browser integration.
 keepassxc-fdosecrets	Enable Freedesktop.org Secrets Service support.
-keepassxc-keeshare	Enable KeeShare group synchronization extension.
 keepassxc-networking	Enable Networking support.
 keepassxc-sshagent	Enable SSHAgent support.
-keepassxc-yubikey	Enable YubiKey HMAC-SHA1 authentication support.
 kerberos		Enable Kerberos support.
 kerberos-prefix-cmds	Enables addition of a prefix to the kerberos client commands.
 kerberos4		Enable Kerberos4 support.
@@ -1062,8 +1066,8 @@ wavpack			Enable wavpack support.
 wayland			Enable support for the Wayland display server protocol.
 webcollage		Install webcollage screensaver.
 webdav			Enable WebDAV support.
-webkit-webdriver	Enable WebDriver (for interacting with webkit-gtk from Python).
 webkit-jit		Enable JIT compilation.
+webkit-webdriver	Enable WebDriver (for interacting with webkit-gtk from Python).
 webrtc			Enable web realtime communications API.
 websocket		Websocket protocol support (as specified in RFC6455)
 webvmail		Install CGI script for voicemail.

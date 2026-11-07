@@ -1,10 +1,10 @@
-$NetBSD: patch-chrome_browser_chrome__browser__field__trials.cc,v 1.28 2026/10/02 11:43:21 kikadf Exp $
+$NetBSD: patch-chrome_browser_chrome__browser__field__trials.cc,v 1.31 2026/10/23 15:05:16 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chrome/browser/chrome_browser_field_trials.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chrome/browser/chrome_browser_field_trials.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chrome/browser/chrome_browser_field_trials.cc
 @@ -60,7 +60,7 @@
  #include "chromeos/ash/services/multidevice_setup/public/cpp/first_run_field_trial.h"

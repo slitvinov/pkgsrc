@@ -1,5 +1,5 @@
-$NetBSD: distinfo,v 1.19 2026/09/23 10:41:47 adam Exp $
+$NetBSD: distinfo,v 1.21 2026/10/24 10:15:56 adam Exp $
 
-BLAKE2s (parse-1.22.2.tar.gz) = 7d0bb725b0b4f155db3af6a44b1c8fc747c4595e63ec5707e56b793995772f0f
-SHA512 (parse-1.22.2.tar.gz) = 6370c28c90cd452d094be43f5e745c474d700f069bcf631d4dcc77d9861633e6916e9699bfb00988a15221388c7a21a9c967f47de964567c8f7c09edd5958dc3
-Size (parse-1.22.2.tar.gz) = 37675 bytes
+BLAKE2s (parse-1.22.4.tar.gz) = 7b632cfccdc3b0b66895ae7df2c289dd1d36bed9013776fd8d7bebc6487d5746
+SHA512 (parse-1.22.4.tar.gz) = 8797a8dd2e42dea731094e5af72cc265e71df8c8ab73b958b8520032598002de57067eaaaa4c6755b139b997f4e8752ef7c17b045bbe9c644e46b87eea5bd885
+Size (parse-1.22.4.tar.gz) = 40279 bytes

@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.78 2026/09/26 10:30:07 wiz Exp $
+# $NetBSD: Makefile,v 1.84 2026/10/29 12:12:49 adam Exp $
 
-DISTNAME=	pypdf-6.19.0
+DISTNAME=	pypdf-6.21.4
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/py//}
 CATEGORIES=	textproc python
 MASTER_SITES=	${MASTER_SITE_PYPI:=p/pypdf/}
@@ -15,12 +15,13 @@ TOOL_DEPENDS+=	${PYPKGPREFIX}-flit_core>=3.11:../../devel/py-flit_core
 DEPENDS+=	${PYPKGPREFIX}-fonttools>=0:../../fonts/py-fonttools
 # image
 DEPENDS+=	${PYPKGPREFIX}-Pillow>=8.0.0:../../graphics/py-Pillow
-TEST_DEPENDS+=	${PYPKGPREFIX}-test_socket-[0-9]*:../../devel/py-test_socket
-TEST_DEPENDS+=	${PYPKGPREFIX}-test-timeout-[0-9]*:../../devel/py-test-timeout
-TEST_DEPENDS+=	${PYPKGPREFIX}-test-xdist-[0-9]*:../../devel/py-test-xdist
-TEST_DEPENDS+=	${PYPKGPREFIX}-yaml-[0-9]*:../../textproc/py-yaml
+TEST_DEPENDS+=	${PYPKGPREFIX}-test>=0:../../devel/py-test
+TEST_DEPENDS+=	${PYPKGPREFIX}-test_socket>=0:../../devel/py-test_socket
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-timeout>=0:../../devel/py-test-timeout
+TEST_DEPENDS+=	${PYPKGPREFIX}-test-xdist>=0:../../devel/py-test-xdist
+TEST_DEPENDS+=	${PYPKGPREFIX}-yaml>=0:../../textproc/py-yaml
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 # crypto
 PYTHON_VERSIONED_DEPENDENCIES+=	cryptography
 
@@ -29,8 +30,11 @@ USE_LANGUAGES=	# none
 .if make(test)
 ALLOW_NETWORK_ACCESS=	yes
 .endif
-# as of 6.19.0
-# 98 failed, 1597 passed, 36 skipped, 6 xfailed
+# as of 6.21.2
+# 2137 passed, 33 skipped, 54 deselected, 1 xfailed, 1 xpassed
+do-test:
+	${RUN} cd ${WRKSRC}/${PYSETUPSUBDIR} && \
+	${SETENV} ${TEST_ENV} pytest-${PYVERSSUFFIX} -m "not samples"
 
 .include "../../lang/python/versioned_dependencies.mk"
 .include "../../lang/python/wheel.mk"

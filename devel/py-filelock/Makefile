@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.63 2026/10/05 10:30:47 wiz Exp $
+# $NetBSD: Makefile,v 1.69 2026/11/01 21:57:37 wiz Exp $
 
-DISTNAME=	filelock-4.0.11
+DISTNAME=	filelock-4.2.6
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=f/filelock/}
@@ -11,6 +11,7 @@ COMMENT=	Platform independent file lock
 LICENSE=	unlicense
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-hatch-vcs>=0.5:../../devel/py-hatch-vcs
+TOOL_DEPENDS+=	${PYPKGPREFIX}-hatch-fancy-pypi-readme>=0:../../devel/py-hatch-fancy-pypi-readme
 TOOL_DEPENDS+=	${PYPKGPREFIX}-hatchling>=1.29:../../devel/py-hatchling
 TEST_DEPENDS+=	${PYPKGPREFIX}-covdefaults>=2.3:../../devel/py-covdefaults
 TEST_DEPENDS+=	${PYPKGPREFIX}-diff-cover>=10.2:../../misc/py-diff-cover
@@ -23,8 +24,8 @@ TEST_DEPENDS+=	${PYPKGPREFIX}-virtualenv>=21.2:../../devel/py-virtualenv
 
 USE_LANGUAGES=	# none
 
-# as of 4.0.11
-# 1852 passed, 61 skipped
+# as of 4.2.6
+# 2731 passed, 286 skipped
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

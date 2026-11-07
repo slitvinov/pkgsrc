@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.13 2025/12/26 12:40:39 adam Exp $
+@comment $NetBSD: PLIST,v 1.15 2026/10/17 13:47:57 wiz Exp $
 bin/debugpy-${PYVERSSUFFIX}
 bin/debugpy-adapter-${PYVERSSUFFIX}
 ${PYSITELIB}/${WHEEL_INFODIR}/METADATA
@@ -342,7 +342,6 @@ ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_eval_main.
 ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_evaluator.c
 ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_evaluator.pxd
 ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_evaluator.pyx
-${PLIST.frame_eval}${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_evaluator.so
 ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_evaluator.template.pyx
 ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_tracing.py
 ${PYSITELIB}/debugpy/_vendored/pydevd/_pydevd_frame_eval/pydevd_frame_tracing.pyc

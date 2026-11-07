@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.26 2026/10/03 09:14:41 adam Exp $
+# $NetBSD: Makefile,v 1.28 2026/10/17 13:47:57 wiz Exp $
 
 DISTNAME=	debugpy-1.8.22
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
@@ -14,14 +14,9 @@ TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
 
 PY_RENAME_BINARIES=	debugpy debugpy-adapter
 
-PLIST_VARS+=	frame_eval pydevd_cython
 .include "../../lang/python/pyversion.mk"
 
-# pydevd_frame_evaluator is not available for Python 3.11
-# see src/debugpy/_vendored/pydevd/setup_pydevd_cython.py
-.if ${PYTHON_VERSION} < 311
-PLIST.frame_eval=	yes
-.endif
+PLIST_VARS+=		pydevd_cython
 .if ${PYTHON_VERSION} >= 312
 PLIST.pydevd_cython=	yes
 .endif

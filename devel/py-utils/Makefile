@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.20 2026/10/07 16:23:49 adam Exp $
+# $NetBSD: Makefile,v 1.22 2026/10/24 09:16:38 adam Exp $
 
-DISTNAME=	python_utils-4.1.0
+DISTNAME=	python_utils-4.1.4
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/python_//}
 CATEGORIES=	devel python
 MASTER_SITES=	${MASTER_SITE_PYPI:=p/python-utils/}

@@ -1,25 +1,20 @@
-# $NetBSD: Makefile,v 1.87 2026/10/02 11:43:18 kikadf Exp $
+# $NetBSD: Makefile,v 1.96 2026/11/02 12:33:21 kikadf Exp $
 
 DISTNAME=			chromium-${VERSION}
-VERSION=			154.0.8037.97
+VERSION=			156.0.8078.79
 CATEGORIES=			www
-#MASTER_SITES=			https://commondatastorage.googleapis.com/chromium-browser-official/
-MASTER_SITES=			${MASTER_SITE_GITHUB:=chromium-linux-tarballs/}chromium-tarballs/releases/download/${VERSION}/
+MASTER_SITES=			https://commondatastorage.googleapis.com/chromium-browser-official/
+#MASTER_SITES=			${MASTER_SITE_GITHUB:=chromium-linux-tarballs/}chromium-tarballs/releases/download/${VERSION}/
 EXTRACT_SUFX_C=			.tar.xz
 
 #PROFILE_DISTFILES=		chromium-${VERSION}-profdata${EXTRACT_SUFX_C}
 #SITES.${PROFILE_DISTFILES}=	https://nerd.hu/distfiles/
-DISTFILES+=			${DISTNAME}-linux${EXTRACT_SUFX_C}
+DISTFILES+=			${DISTNAME}-lite${EXTRACT_SUFX_C}
 #DISTFILES+=			${PROFILE_DISTFILES}
 
 # Sources to build on NetBSD
 NB_VERSION=			v154.0
 GITHUB_SUBMODULES=		kikadf chromium-nb ${NB_VERSION} ./
-
-# rollup
-GITHUB_SUBMODULES+=		rollup rollup v4.60.4 rollup
-CARGO_WRKSRC=			${WRKSRC}/rollup/rust
-.include "cargo-depends.mk"
 
 # esbuild
 EB_DISTNAME=			${MAKE} -C ../../www/esbuild -V DISTNAME
@@ -30,10 +25,18 @@ GITHUB_SUBMODULES+=		evanw esbuild v${EB_VER} esbuild
 GITHUB_SUBMODULES+=		microsoft TypeScript v7.0.2 typescript
 
 # LLVM_MAJOR_VERSION
-LLVM_MV=			21
+LLVM_VERSION=			${MAKE} -C ../../lang/llvm -V LLVM_VERSION
+LLVM_MV=			${LLVM_VERSION:sh:C/\..*//}
 
 # Used nodejs version
 NODE_VERSIONS_ACCEPTED=		24
+
+EXTRACT_ONLY=			${DISTNAME}-lite${EXTRACT_SUFX_C}
+#EXTRACT_ONLY+=			${PROFILE_DISTFILES}
+EXTRACT_ONLY+=			${_GITHUB_DEFAULT_DISTFILES}
+.for crate in ${CARGO_CRATE_DEPENDS}
+EXTRACT_ONLY+=			${crate}.crate
+.endfor
 
 MAINTAINER=			kikadf@NetBSD.org
 HOMEPAGE=			https://www.chromium.org/Home
@@ -134,7 +137,8 @@ SUBST_FILES.path+=	third_party/test_fonts/fontconfig/BUILD.gn
 SUBST_FILES.path+=	third_party/vulkan-loader/src/BUILD.gn
 SUBST_FILES.path+=	third_party/wayland/BUILD.gn
 SUBST_FILES.path+=	v8/tools/run-paxctl.py
-SUBST_VARS.path+=	PREFIX PKG_SYSCONFBASE VARBASE QTDIR X11BASE PYTHONBIN
+SUBST_FILES.path+=	v8/BUILD.gn
+SUBST_VARS.path+=	PREFIX PKG_SYSCONFBASE VARBASE QTDIR X11BASE PYTHONBIN LLVM_MV
 
 SUBST_CLASSES+=		man
 SUBST_STAGE.man=	pre-configure
@@ -150,8 +154,6 @@ SUBST_STAGE.pulse=	pre-configure
 SUBST_MESSAGE.pulse=	Set BUILT_WITH_PULSE to ${WITH_PA} in chromium wrapper
 SUBST_FILES.pulse+=	chromium.sh
 SUBST_SED.pulse+=	-e 's,@PULSE@,${WITH_PA},g'
-
-.include "tests.mk"
 
 BUILDTYPE=	Release
 MAKE_ENV+=	BUILDTYPE=${BUILDTYPE}
@@ -215,6 +217,8 @@ GN_ARGS+=	use_typescript_go=false
 GN_ARGS+=	use_udev=true
 GN_ARGS+=	use_vaapi=false
 GN_ARGS+=	v8_enable_cet_ibt=true
+GN_ARGS+=	v8_metagen_libclang_so=\"${PREFIX}/lib/libclang.so\"
+GN_ARGS+=	v8_metagen_libclang_bindings_dir=\"${PREFIX}/${PYSITELIB}\"
 
 # flags
 CFLAGS+=	-fno-stack-protector
@@ -331,9 +335,6 @@ pre-configure:
 	${LN} -sf ${PREFIX}/bin/esbuild \
 		${WRKSRC}/third_party/devtools-frontend/src/third_party/esbuild/esbuild
 
-	# Prepare rollup
-	${MKDIR} ${WRKSRC}/third_party/devtools-frontend/src/node_modules/@rollup/rollup-${LOWER_OPSYS}
-
 do-configure:
 	${RUN} cd ${WRKSRC}/esbuild && \
 		${WRKSRC}/third_party/node/${LOWER_OPSYS}/node-${LOWER_OPSYS}/bin/node scripts/esbuild.js \
@@ -349,15 +350,12 @@ do-configure:
 	cd ${WRKSRC}/tools/gn && \
 		${SETENV} ${MAKE_ENV} ${PYTHONBIN} bootstrap/bootstrap.py ${GN_BOOTSTRAP_FLAGS}
 
+	${LN} -sf ${WRKSRC}/out/${BUILDTYPE}/gn ${WRKSRC}/buildtools/linux64/gn
 	cd ${WRKSRC} && \
 		${SETENV} ${CONFIGURE_ENV} ./out/${BUILDTYPE}/gn \
 		gen --args="${GN_ARGS}" --script-executable="${PYTHONBIN}" ${GN_VERBOSE} out/${BUILDTYPE}
 
-do-build: do-cargo-build
-	cd ${WRKSRC}/third_party/devtools-frontend/src/node_modules/@rollup && \
-	${CP} ${WRKSRC}/rollup/rust/target/release/libbindings_napi.so \
-		rollup-${LOWER_OPSYS}/rollup.${LOWER_OPSYS}.node && \
-		${ECHO} '{ "main": "./rollup.${LOWER_OPSYS}.node" }' > rollup-${LOWER_OPSYS}/package.json
+do-build:
 	${RUN} cd ${WRKSRC}/typescript/tsc && ${_ULIMIT_CMD} ${PKGSRC_SETENV} ${MAKE_ENV} \
 		${GO} telemetry off >/dev/null 2>&1 || ${TRUE}
 	${RUN} cd ${WRKSRC}/typescript/tsc && ${_ULIMIT_CMD} ${PKGSRC_SETENV} ${MAKE_ENV} \
@@ -422,7 +420,6 @@ do-install:
 .include "../../devel/dconf/buildlink3.mk"
 .include "../../devel/input-headers/buildlink3.mk"
 .include "../../devel/libepoll-shim/buildlink3.mk"
-.include "../../devel/libudev-bsd/buildlink3.mk"
 .include "../../devel/libusb1/buildlink3.mk"
 .include "../../devel/nspr/buildlink3.mk"
 .include "../../devel/nss/buildlink3.mk"
@@ -448,6 +445,8 @@ BUILDLINK_DEPMETHOD.nodejs=	build
 #.include "../../lang/typescript/buildlink3.mk"
 .include "../../misc/usbids/buildlink3.mk"
 .include "../../mk/jpeg.buildlink3.mk" # libjpeg-turbo
+UDEV_REQUIRED=		yes
+.include "../../mk/udev.buildlink3.mk"
 .include "../../multimedia/dav1d/buildlink3.mk"
 .include "../../multimedia/libaom/buildlink3.mk"
 .include "../../multimedia/libvpx/buildlink3.mk"

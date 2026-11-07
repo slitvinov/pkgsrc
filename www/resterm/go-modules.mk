@@ -1,4 +1,4 @@
-# $NetBSD: go-modules.mk,v 1.49 2026/10/08 08:22:39 drixter Exp $
+# $NetBSD: go-modules.mk,v 1.57 2026/10/31 07:37:52 drixter Exp $
 
 GO_MODULE_FILES+=	github.com/!make!now!just/heredoc/@v/v1.0.0.mod
 GO_MODULE_FILES+=	github.com/!make!now!just/heredoc/@v/v1.0.0.zip
@@ -12,6 +12,8 @@ GO_MODULE_FILES+=	github.com/aymanbagabas/go-udiff/@v/v0.2.0.mod
 GO_MODULE_FILES+=	github.com/aymanbagabas/go-udiff/@v/v0.2.0.zip
 GO_MODULE_FILES+=	github.com/bahlo/generic-list-go/@v/v0.2.0.mod
 GO_MODULE_FILES+=	github.com/bahlo/generic-list-go/@v/v0.2.0.zip
+GO_MODULE_FILES+=	github.com/bufbuild/protocompile/@v/v0.14.1.mod
+GO_MODULE_FILES+=	github.com/bufbuild/protocompile/@v/v0.14.1.zip
 GO_MODULE_FILES+=	github.com/buger/jsonparser/@v/v1.1.1.mod
 GO_MODULE_FILES+=	github.com/buger/jsonparser/@v/v1.1.1.zip
 GO_MODULE_FILES+=	github.com/cenkalti/backoff/v5/@v/v5.0.3.mod

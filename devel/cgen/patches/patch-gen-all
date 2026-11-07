@@ -1,0 +1,24 @@
+$NetBSD: patch-gen-all,v 1.1 2026/10/14 15:02:46 ryoon Exp $
+
+* POSIX shell portability.
+
+--- gen-all.orig	2026-10-14 06:55:41.891951438 +0000
++++ gen-all
+@@ -153,7 +153,7 @@ done
+ 	exit 1
+     fi
+ done
+-if [ "${do_sid}" == "yes" ]
++if [ "${do_sid}" = "yes" ]
+ then
+     for c in ${sid_cpus}
+     do
+@@ -174,7 +174,7 @@ config_src () {
+     prefix=$2
+ 
+     extra_config_args=""
+-    if [ "${target_sys}" == "${build_all_target_sys}" ]
++    if [ "${target_sys}" = "${build_all_target_sys}" ]
+     then
+ 	extra_config_args="${extra_config_args} --enable-targets=all"
+     fi

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.60 2022/10/26 10:31:17 wiz Exp $
+# $NetBSD: Makefile,v 1.62 2026/10/15 00:02:52 gdt Exp $
 
 DISTNAME=	guile-pg-0.50
-PKGREVISION=	2
+PKGREVISION=	3
 CATEGORIES=	databases
 MASTER_SITES=	http://download.savannah.nongnu.org/releases/guile-pg/
 EXTRACT_SUFX=	.tar.lz
@@ -28,6 +28,6 @@ TEST_ENV+=	GUILE_AUTO_COMPILE=0
 TEST_ENV+=	VERBOSE=1
 TEST_ENV+=	DEBUG=1
 
-.include "../../lang/guile22/buildlink3.mk"
+.include "../../lang/guile30/buildlink3.mk"
 .include "../../mk/pgsql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

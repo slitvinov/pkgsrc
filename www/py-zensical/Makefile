@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.15 2026/10/04 17:19:18 wiz Exp $
+# $NetBSD: Makefile,v 1.21 2026/11/01 22:11:36 wiz Exp $
 #
 # Changelog:
 # https://github.com/zensical/zensical/releases
 
-DISTNAME=	zensical-0.0.67
+DISTNAME=	zensical-0.0.74
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	www textproc python
 MASTER_SITES=	${MASTER_SITE_PYPI:=z/zensical/}
@@ -28,7 +28,7 @@ SUBST_NOOP_OK.gitcrate=	yes
 
 PY_RENAME_BINARIES=	zensical
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 RUST_REQ=	1.89
 

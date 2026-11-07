@@ -1,10 +1,10 @@
-$NetBSD: patch-components_supervised__user_core_common_pref__names.h,v 1.28 2026/10/02 11:43:29 kikadf Exp $
+$NetBSD: patch-components_supervised__user_core_common_pref__names.h,v 1.31 2026/10/23 15:05:25 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- components/supervised_user/core/common/pref_names.h.orig	2026-09-22 00:09:16.000000000 +0000
+--- components/supervised_user/core/common/pref_names.h.orig	2026-10-19 20:07:21.000000000 +0000
 +++ components/supervised_user/core/common/pref_names.h
 @@ -129,7 +129,7 @@ inline constexpr char kDefaultSupervised
      "profile.managed.default_filtering_behavior";

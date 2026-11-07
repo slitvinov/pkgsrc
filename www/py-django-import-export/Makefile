@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.48 2026/06/28 15:41:45 wiz Exp $
+# $NetBSD: Makefile,v 1.51 2026/11/02 12:35:30 adam Exp $
 
-DISTNAME=	django_import_export-4.4.1
+DISTNAME=	django_import_export-4.4.4
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/_/-/g}
 CATEGORIES=	www python
 MASTER_SITES=	${MASTER_SITE_PYPI:=d/django-import-export/}
@@ -18,7 +18,7 @@ DEPENDS+=	${PYPKGPREFIX}-tablib>=3.7.0:../../textproc/py-tablib
 
 USE_LANGUAGES=	# none
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

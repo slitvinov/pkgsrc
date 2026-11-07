@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1945 2026/10/01 18:02:48 adam Exp $
+# $NetBSD: Makefile,v 1.1949 2026/11/04 13:54:10 ast Exp $
 #
 
 COMMENT=	Packages related to the World Wide Web
@@ -94,6 +94,7 @@ SUBDIR+=	cgic
 SUBDIR+=	cgicc
 SUBDIR+=	cgilib
 SUBDIR+=	cgit
+SUBDIR+=	chawan
 SUBDIR+=	checkbot
 SUBDIR+=	chromium
 SUBDIR+=	clisp-fastcgi
@@ -137,6 +138,7 @@ SUBDIR+=	firefox153-l10n
 SUBDIR+=	firefox52
 SUBDIR+=	firefox52-l10n
 SUBDIR+=	firefox_decrypt
+SUBDIR+=	forgejo
 SUBDIR+=	freenginx
 SUBDIR+=	freenginx-devel
 SUBDIR+=	gallery
@@ -150,6 +152,9 @@ SUBDIR+=	go-minify
 SUBDIR+=	goaccess
 SUBDIR+=	gotosocial
 SUBDIR+=	grafana
+SUBDIR+=	grafana-influxdb-datasource
+SUBDIR+=	grafana-mysql-datasource
+SUBDIR+=	grafana-postgresql-datasource
 SUBDIR+=	grafana-prometheus-datasource
 SUBDIR+=	gtkasp2php
 SUBDIR+=	guile-haunt
@@ -419,6 +424,7 @@ SUBDIR+=	p5-Dancer2
 SUBDIR+=	p5-Data-URIEncode
 SUBDIR+=	p5-FCGI
 SUBDIR+=	p5-FCGI-Client
+SUBDIR+=	p5-FCGI-Daemon
 SUBDIR+=	p5-FCGI-ProcManager
 SUBDIR+=	p5-File-Mork
 SUBDIR+=	p5-HTML-CalendarMonthSimple

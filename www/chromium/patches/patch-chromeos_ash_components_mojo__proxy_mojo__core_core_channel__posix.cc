@@ -1,10 +1,10 @@
-$NetBSD: patch-chromeos_ash_components_mojo__proxy_mojo__core_core_channel__posix.cc,v 1.5 2026/10/02 11:43:27 kikadf Exp $
+$NetBSD: patch-chromeos_ash_components_mojo__proxy_mojo__core_core_channel__posix.cc,v 1.8 2026/10/23 15:05:23 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- chromeos/ash/components/mojo_proxy/mojo_core/core/channel_posix.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- chromeos/ash/components/mojo_proxy/mojo_core/core/channel_posix.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ chromeos/ash/components/mojo_proxy/mojo_core/core/channel_posix.cc
 @@ -28,7 +28,7 @@
  #include "build/build_config.h"

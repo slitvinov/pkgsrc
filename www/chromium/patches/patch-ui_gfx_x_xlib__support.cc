@@ -1,10 +1,10 @@
-$NetBSD: patch-ui_gfx_x_xlib__support.cc,v 1.28 2026/10/02 11:43:40 kikadf Exp $
+$NetBSD: patch-ui_gfx_x_xlib__support.cc,v 1.31 2026/10/23 15:05:38 kikadf Exp $
 
 * Part of patchset to build chromium on NetBSD
 * Based on OpenBSD's chromium patches, and
   pkgsrc's qt5-qtwebengine patches
 
---- ui/gfx/x/xlib_support.cc.orig	2026-09-22 00:09:16.000000000 +0000
+--- ui/gfx/x/xlib_support.cc.orig	2026-10-19 20:07:21.000000000 +0000
 +++ ui/gfx/x/xlib_support.cc
 @@ -39,10 +39,18 @@ void InitXlib() {
      return;

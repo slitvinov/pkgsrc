@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.22 2026/02/09 07:17:27 wiz Exp $
+# $NetBSD: Makefile,v 1.24 2026/10/20 18:21:18 wiz Exp $
 
 DISTNAME=	spiped-1.6.4
 CATEGORIES=	security net
@@ -14,6 +14,12 @@ USE_LANGUAGES=	c
 TEST_TARGET=	test
 
 USE_CC_FEATURES=	c99
+
+.include "../../mk/bsd.prefs.mk"
+
+.if ${OPSYS} == "SunOS"
+MAKE_FLAGS+=	ARFLAGS=-rc
+.endif
 
 MAKE_FLAGS+=	BINDIR=${DESTDIR}${PREFIX}/bin
 MAKE_FLAGS+=	MAN1DIR=${DESTDIR}${PREFIX}/${PKGMANDIR}/man1

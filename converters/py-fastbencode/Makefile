@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.18 2026/08/03 09:55:18 adam Exp $
+# $NetBSD: Makefile,v 1.20 2026/10/29 12:16:59 adam Exp $
 
-DISTNAME=	fastbencode-0.3.11
+DISTNAME=	fastbencode-0.3.12
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	converters python
 MASTER_SITES+=	${MASTER_SITE_PYPI:=f/fastbencode/}
@@ -12,8 +12,6 @@ LICENSE=	gnu-gpl-v2
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools-rust>=1.0.0:../../devel/py-setuptools-rust
-
-PYTHON_VERSIONS_INCOMPATIBLE=	310
 
 .include "cargo-depends.mk"
 

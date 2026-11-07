@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.2 2026/09/03 09:14:54 adam Exp $
+@comment $NetBSD: PLIST,v 1.4 2026/11/04 14:06:13 adam Exp $
 bin/pipx-${PYVERSSUFFIX}
 ${PYSITELIB}/${WHEEL_INFODIR}/METADATA
 ${PYSITELIB}/${WHEEL_INFODIR}/RECORD
@@ -23,6 +23,9 @@ ${PYSITELIB}/pipx/backends/_base.pyo
 ${PYSITELIB}/pipx/backends/pip.py
 ${PYSITELIB}/pipx/backends/pip.pyc
 ${PYSITELIB}/pipx/backends/pip.pyo
+${PYSITELIB}/pipx/backends/registry.py
+${PYSITELIB}/pipx/backends/registry.pyc
+${PYSITELIB}/pipx/backends/registry.pyo
 ${PYSITELIB}/pipx/backends/uv.py
 ${PYSITELIB}/pipx/backends/uv.pyc
 ${PYSITELIB}/pipx/backends/uv.pyo
@@ -107,12 +110,18 @@ ${PYSITELIB}/pipx/constants.pyo
 ${PYSITELIB}/pipx/emojis.py
 ${PYSITELIB}/pipx/emojis.pyc
 ${PYSITELIB}/pipx/emojis.pyo
+${PYSITELIB}/pipx/fanout.py
+${PYSITELIB}/pipx/fanout.pyc
+${PYSITELIB}/pipx/fanout.pyo
 ${PYSITELIB}/pipx/interpreter.py
 ${PYSITELIB}/pipx/interpreter.pyc
 ${PYSITELIB}/pipx/interpreter.pyo
 ${PYSITELIB}/pipx/main.py
 ${PYSITELIB}/pipx/main.pyc
 ${PYSITELIB}/pipx/main.pyo
+${PYSITELIB}/pipx/options.py
+${PYSITELIB}/pipx/options.pyc
+${PYSITELIB}/pipx/options.pyo
 ${PYSITELIB}/pipx/package_specifier.py
 ${PYSITELIB}/pipx/package_specifier.pyc
 ${PYSITELIB}/pipx/package_specifier.pyo
@@ -122,6 +131,9 @@ ${PYSITELIB}/pipx/paths.pyo
 ${PYSITELIB}/pipx/pipx_metadata_file.py
 ${PYSITELIB}/pipx/pipx_metadata_file.pyc
 ${PYSITELIB}/pipx/pipx_metadata_file.pyo
+${PYSITELIB}/pipx/redact.py
+${PYSITELIB}/pipx/redact.pyc
+${PYSITELIB}/pipx/redact.pyo
 ${PYSITELIB}/pipx/requires_python.py
 ${PYSITELIB}/pipx/requires_python.pyc
 ${PYSITELIB}/pipx/requires_python.pyo
@@ -140,6 +152,12 @@ ${PYSITELIB}/pipx/shared_libs.pyo
 ${PYSITELIB}/pipx/standalone_python.py
 ${PYSITELIB}/pipx/standalone_python.pyc
 ${PYSITELIB}/pipx/standalone_python.pyo
+${PYSITELIB}/pipx/subprocess_runner.py
+${PYSITELIB}/pipx/subprocess_runner.pyc
+${PYSITELIB}/pipx/subprocess_runner.pyo
+${PYSITELIB}/pipx/trash.py
+${PYSITELIB}/pipx/trash.pyc
+${PYSITELIB}/pipx/trash.pyo
 ${PYSITELIB}/pipx/util.py
 ${PYSITELIB}/pipx/util.pyc
 ${PYSITELIB}/pipx/util.pyo

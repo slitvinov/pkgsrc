@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.79 2026/09/22 09:13:30 adam Exp $
+# $NetBSD: Makefile,v 1.81 2026/10/19 12:11:40 adam Exp $
 
-DISTNAME=	tifffile-2026.9.20
+DISTNAME=	tifffile-2026.10.15
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	graphics python
 MASTER_SITES=	${MASTER_SITE_PYPI:=t/tifffile/}
@@ -18,7 +18,7 @@ USE_LANGUAGES=	# none
 
 PY_RENAME_BINARIES=	lsm2bin tiff2fsspec tiffcomment tifffile
 
-PYTHON_VERSIONS_INCOMPATIBLE=	310 311
+PYTHON_VERSIONS_INCOMPATIBLE=	311
 
 .include "../../lang/python/wheel.mk"
 .include "../../mk/bsd.pkg.mk"

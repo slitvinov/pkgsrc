@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.49 2026/09/28 15:38:03 wiz Exp $
+# $NetBSD: Makefile,v 1.52 2026/11/06 10:38:17 adam Exp $
 
-DISTNAME=	markdown-3.11
+DISTNAME=	markdown-3.11.3
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
 CATEGORIES=	textproc python
 MASTER_SITES=	${MASTER_SITE_PYPI:=M/Markdown/}
@@ -11,13 +11,11 @@ COMMENT=	XHTML generator using a simple markup
 LICENSE=	modified-bsd
 
 TOOL_DEPENDS+=	${PYPKGPREFIX}-setuptools>=78:../../devel/py-setuptools
-TEST_DEPENDS+=	${PYPKGPREFIX}-yaml-[0-9]*:../../textproc/py-yaml
+TEST_DEPENDS+=	${PYPKGPREFIX}-yaml>=0:../../textproc/py-yaml
 
 USE_LANGUAGES=	# none
 
-post-install:
-	cd ${DESTDIR}${PREFIX}/bin && \
-	${MV} markdown_py markdown_py${PYVERSSUFFIX} || ${TRUE}
+PY_RENAME_BINARIES=	markdown_py
 
 do-test:
 	cd ${WRKSRC} && ${SETENV} ${TEST_ENV} ${PYTHONBIN} -m unittest discover -v
