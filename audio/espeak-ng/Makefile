@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.11 2026/09/29 06:03:42 wiz Exp $
 
 DISTNAME=	espeak-ng-1.52.0
-PKGREVISION=	6
+PKGREVISION=	7
 CATEGORIES=	audio
 MASTER_SITES=	${MASTER_SITE_GITHUB:=espeak-ng/}
 GITHUB_TAG=	${PKGVERSION_NOREV}
@@ -10,8 +10,6 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	https://github.com/espeak-ng/espeak-ng/
 COMMENT=	Open source speech synthesizer
 LICENSE=	gnu-gpl-v3 AND apache-2.0 AND 2-clause-bsd AND unicode
-
-DEPENDS+=	mbrola-[0-9]*:../../audio/mbrola
 
 USE_TOOLS+=	autoconf automake autoreconf gmake
 GNU_CONFIGURE=	yes
