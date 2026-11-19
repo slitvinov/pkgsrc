@@ -2,6 +2,7 @@
 
 DISTNAME=	pytorch-v2.8.0
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S,pytorch-v,torch-,}
+PKGREVISION=	1
 CATEGORIES=	math
 MASTER_SITES=	${MASTER_SITE_GITHUB:=pytorch/}
 GITHUB_PROJECT=	pytorch
@@ -24,8 +25,13 @@ USE_TOOLS+=	gmake
 
 EGG_INFODIR=	torch-2.5.0a0+gitunknown-py${PYVERSSUFFIX}.egg-info
 
+.include "../../mk/bsd.prefs.mk"
+
+# On Darwin, PyTorch's FindBLAS picks Accelerate, as upstream does.
+.if ${OPSYS} != "Darwin"
 BLAS_INDEX64=		yes
 BLAS_ACCEPTED=		openblas_pthread openblas_openmp
+.endif
 
 USE_LANGUAGES+=		c c++
 USE_CC_FEATURES=	c11
@@ -69,8 +75,27 @@ MAKE_ENV+=	USE_MKLDNN=0
 MAKE_ENV+=	BUILD_TEST=0
 MAKE_ENV+=	USE_CUDNN=0
 MAKE_ENV+=	USE_DISTRIBUTED=1
+# setup.py runs one compile job per CPU unless told otherwise.
+MAKE_ENV+=	MAX_JOBS=${MAKE_JOBS:U1}
 
 PYTHON_VERSIONS_INCOMPATIBLE=	311 314 315
+
+.if ${OPSYS} == "Darwin"
+# Metal Performance Shaders backend (Apple GPU).  Without the offline
+# Metal compiler (Command Line Tools only) the shaders are embedded as
+# source and compiled at run time.
+MAKE_ENV+=	USE_MPS=1
+# The wrappers drop the @loader_path rpaths, so @rpath install names
+# cannot be resolved; use absolute ones (setup.py passes CMAKE_* from
+# the environment to CMake).
+MAKE_ENV+=	CMAKE_INSTALL_NAME_DIR=${PREFIX}/${PYSITELIB}/torch/lib
+.endif
+
+# FBGEMM (with asmjit) and Intel ITT are only built on x86.
+PLIST_VARS+=	x86
+.if ${MACHINE_ARCH} == "x86_64" || ${MACHINE_ARCH} == "i386"
+PLIST.x86=	yes
+.endif
 
 post-extract:
 	# For mkpatches(1) and developers only.
@@ -94,7 +119,9 @@ post-install:
 #.include "../../devel/protobuf/buildlink3.mk"
 .include "../../math/fftw/buildlink3.mk"
 .include "../../math/mpfr/buildlink3.mk"
+.if ${OPSYS} != "Darwin"
 .include "../../mk/blas.buildlink3.mk"
+.endif
 .include "../../math/py-numpy/buildlink3.mk"
 .include "../../mk/openmp.mk"
 .include "../../security/openssl/buildlink3.mk"
